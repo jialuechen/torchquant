@@ -1,4 +1,4 @@
-# QuanTorch ：PyTorch Library for Quantitative Finance
+# QuanTorch ：PyTorch for Quantitative Finance
 
 
 [![python version](https://img.shields.io/badge/python-3.9+-brightgreen.svg)](https://github.com/jialuechen)
