@@ -1,7 +1,6 @@
 import torch
 from quantorch.utils.parse import parse_spot
 
-
 @torch.enable_grad
 def delta(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
     '''
