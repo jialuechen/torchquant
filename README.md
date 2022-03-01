@@ -2,6 +2,7 @@
 
 
 [![python version](https://img.shields.io/badge/python-3.9+-brightgreen.svg)](https://github.com/jialuechen)
+![PyPI](https://img.shields.io/pypi/v/0.0.1)
 
 QuanTorch is a PyTorch-Based Python Library for Quantitative Finance.
 
