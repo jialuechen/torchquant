@@ -1,10 +1,11 @@
+from os import device_encoding
 import torch
 from torch import Tensor
-from ..tensor import steps
 
-def brownian_motion(size,time,inititative_value:float=0,drift:float=0,volatility:float=0)->Tensor:
-    dt=torch.empty_like(time)
-    return drift*time+(volatility*torch.randn(size)*dt.sqrt()).cumsum(-1)
+def brownian_motion(size,time,init_value:float=0.0,drift:float=0.0,volatility:float=0.0,device=None)->Tensor:
+    dt=torch.empty(time)
+    dwt=dt.sqrt()
+    return init_value+drift*time+(volatility*torch.randn(size)*dwt).cumsum(dim=-1)
 
-def geometric_brownian_motion()->Tensor:
-    pass
+def geometric_brownian_motion(size,time,init_value:float=0.0,drift:float=0.0,volatility:float=0.0,device=None)->Tensor:
+    return init_value*torch.exp(brownian_motion(size,time,drift-volatility**2/2,volatility,device=device))
