@@ -1,5 +1,5 @@
 import torch
-from quantorch.utils.parse import parse_spot
+from utils.parse import _parse_spot
 
 @torch.enable_grad
 def delta(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
@@ -7,7 +7,7 @@ def delta(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
     if kwargs.get("strike") is None and kwargs.get("spot") is None:
         kwargs["strike"]=torch.tensor(1.0)
     '''
-    spot=parse_spot(**kwargs)
+    spot=_parse_spot(**kwargs)
     price=pricer(**kwargs)
     return torch.autograd.grad(
         price,
@@ -18,7 +18,7 @@ def delta(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
 
 @torch.enable_grad
 def gamma(pricer,create_graph:bool =False,**kwargs)->torch.tensor:
-    spot=parse_spot(**kwargs)
+    spot=_parse_spot(**kwargs)
     the_delta=delta(pricer,create_graph=True,**kwargs).requires_grad_()
     return torch.autograd.grad(the_delta,inputs=spot,grad_outputs=torch.ones_like(the_delta),create_graph=create_graph)[0]
 
