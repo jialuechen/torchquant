@@ -15,7 +15,7 @@ PyTorch provides two high-level features:
 * Tensor computing with strong acceleration via GPU
 * Automatic differentiation System
 
-Quantorch makes use of these modern features on PyTorch library to build advanced quantitative finance models, solvers and numerical methods.
+Quantorch makes use of these modern features on PyTorch library to build advanced stochastic models, derivatives pricers, PDE solvers and numerical methods.
 
 ## Installation
 ```
