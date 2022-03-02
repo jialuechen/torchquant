@@ -3,7 +3,7 @@ from utils.parse import _parse_spot
 
 @torch.enable_grad
 def delta(pricing_model,create_graph:bool=False,**kwargs)->torch.tensor:
-    spot=_parse_spot(**kwargs)
+    spot=kwargs["spot"].requires_grad_()
     price=pricing_model(**kwargs)
     return torch.autograd.grad(
         price,
@@ -32,11 +32,11 @@ def vega(pricing_model,create_graph:bool=False,**kwargs)->torch.tensor:
 
 @torch.enable_grad
 def theta(pricing_model,create_graph:bool=False,**kwargs)->torch.tensor:
-    expiry=kwargs["expiry"].requires_grad_()
+    maturity=kwargs["maturity"].requires_grad_()
     price=pricing_model(**kwargs)
     return -torch.autograd.grad(
         price,
-        inputs=expiry,
+        inputs=maturity,
         grad_outputs=torch.ones_like(price),
         create_graph=create_graph,
     )[0]
