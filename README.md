@@ -3,6 +3,7 @@
 
 [![python version](https://img.shields.io/badge/python-3.9+-brightgreen.svg)](https://github.com/jialuechen)
 ![PyPI](https://img.shields.io/pypi/v/0.0.1)
+![PyPI - License](https://img.shields.io/pypi/l/quantorch)
 
 QuanTorch is a PyTorch-Based Python Library for Quantitative Finance.
 
@@ -15,7 +16,7 @@ PyTorch provides two high-level features:
 * Tensor computing with strong acceleration via GPU
 * Automatic differentiation System
 
-Quantorch makes use of these modern features on PyTorch library to build advanced stochastic models, derivatives pricers, PDE solvers and numerical methods.
+Quantorch makes use of these modern features on PyTorch library to build advanced stochastic models, high-performance pricers, PDE solvers and numerical methods.
 
 ## Installation
 ```
