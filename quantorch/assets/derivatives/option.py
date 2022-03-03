@@ -7,8 +7,8 @@ from utils import calculate_payoff
 class OptionTypes(Enum):
 
     @classmethod
-    def get_class(cls,style):
-        return{cls.EUROPEAN:EuropeanOption}[cls(style)]
+    def get_class(cls,category):
+        return{cls.EUROPEAN:EuropeanOption}[cls(category)]
 
 class Option:
 
