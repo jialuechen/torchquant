@@ -1,5 +1,4 @@
 import torch
-from utils.parse import _parse_spot
 
 @torch.enable_grad
 def delta(pricing_model,create_graph:bool=False,**kwargs)->torch.tensor:
@@ -14,7 +13,7 @@ def delta(pricing_model,create_graph:bool=False,**kwargs)->torch.tensor:
 
 @torch.enable_grad
 def gamma(pricing_model,create_graph:bool =False,**kwargs)->torch.tensor:
-    spot=_parse_spot(**kwargs)
+    spot=kwargs["spot"]
     the_delta=delta(pricing_model,create_graph=True,**kwargs).requires_grad_()
     return torch.autograd.grad(the_delta,inputs=spot,grad_outputs=torch.ones_like(the_delta),create_graph=create_graph)[0]
 
