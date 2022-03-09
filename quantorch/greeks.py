@@ -2,7 +2,7 @@ import torch
 
 '''
 For the kwargs below, we required the all the values in the dictionary are tensors.
-Usually the basic keys in the kwargs are spot,volatility,maturity and rate. The keys should meet the requirements of the pricer.
+Usually the basic keys in the kwargs are spot,volatility,maturity and risk-free rate. The keys should meet the requirements of the pricer.
 '''
 
 @torch.enable_grad
@@ -25,7 +25,6 @@ def vega(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
     vol=kwargs["vol"].requires_grad_()
     return torch.autograd.grad(price,inputs=vol,grad_outputs=torch.ones_like(price),create_graph=create_graph)[0]
     
-
 @torch.enable_grad
 def theta(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
     maturity=kwargs["maturity"].requires_grad_()
