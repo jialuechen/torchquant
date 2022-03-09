@@ -1,4 +1,4 @@
-# QuanTorch ：Modern Quantitative Finance Package Powered by Machine Learning
+# QuanTorch ：Modern Quantitative Finance Python Library Powered by Machine Learning
 
 
 [![python version](https://img.shields.io/badge/python-3.9+-brightgreen.svg)](https://github.com/jialuechen)
