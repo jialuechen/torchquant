@@ -16,8 +16,8 @@ def delta(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
 def gamma(pricer,create_graph:bool =False,**kwargs)->torch.tensor:
     spot=kwargs["spot"]
     # set create_graph as True to allow the computation of the second order derivatives
-    the_delta=delta(pricer,create_graph=True,**kwargs).requires_grad_()
-    return torch.autograd.grad(the_delta,inputs=spot,grad_outputs=torch.ones_like(the_delta),create_graph=create_graph)[0]
+    delta_tensor=delta(pricer,create_graph=True,**kwargs).requires_grad_()
+    return torch.autograd.grad(delta_tensor,inputs=spot,grad_outputs=torch.ones_like(delta_tensor),create_graph=create_graph)[0]
 
 @torch.enable_grad
 def vega(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
