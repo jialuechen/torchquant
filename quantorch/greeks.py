@@ -1,9 +1,8 @@
 import torch
 
+# For the kwargs below, we required the all the values in the dictionary are tensors
+
 @torch.enable_grad
-
-# For below kwargs, we required the all the values are tensors
-
 def delta(pricing_model,create_graph:bool=False,**kwargs)->torch.tensor:
     # Please note that here the spot is a tensor
     spot=kwargs["spot"].requires_grad_()
