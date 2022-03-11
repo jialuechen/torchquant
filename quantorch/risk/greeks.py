@@ -33,6 +33,6 @@ def theta(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
 
 @torch.enable_grad
 def rho(pricer,create_graph:bool=False,**kwargs)->torch.tensor:
-    rate=kwargs["rate"].requires_grad_()
+    risk_free_rate=kwargs["risk_free_rate"].requires_grad_()
     price=pricer(**kwargs)
-    return -torch.autograd.grad(price,inputs=rate,grad_outputs=torch.ones_like(price), create_graph=create_graph)[0]
+    return -torch.autograd.grad(price,inputs=risk_free_rate,grad_outputs=torch.ones_like(price), create_graph=create_graph)[0]

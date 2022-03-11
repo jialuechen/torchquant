@@ -1,4 +1,4 @@
-from quantorch.black_scholes.blackscholes import EuropeanOption
+from quantorch.bsm.bsm import BSM_EuropeanOption
 
 from enum import Enum
 
@@ -8,7 +8,7 @@ class OptionTypes(Enum):
 
     @classmethod
     def get_class(cls,category):
-        return{cls.EUROPEAN:EuropeanOption}[cls(category)]
+        return{cls.EUROPEAN:BSM_EuropeanOption}[cls(category)]
 
 class Option:
 
