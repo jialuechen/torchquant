@@ -14,7 +14,7 @@ QuanTorch is developed to empower quantitative research by providing modern deep
 PyTorch provides two high-level features: 
 
 * Tensor computing with strong acceleration via GPU
-* Automatic differentiation System
+* Automatic Differentiation System
 
 Quantorch makes use of these modern features on PyTorch library to build advanced stochastic models, high-performance pricing_models, PDE solvers and numerical methods.
 
