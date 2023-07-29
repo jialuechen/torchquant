@@ -1,5 +1,5 @@
 <div align=center >
-<img src="quantorch-high-resolution-color-logo.png" width="50%" loc>
+<img src="asset/quantorch-high-resolution-color-logo.png" width="50%" loc>
 </div>
 
 [![python version](https://img.shields.io/badge/python-3.8+-brightgreen.svg)](https://github.com/jialuechen)
