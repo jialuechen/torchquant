@@ -2,10 +2,10 @@ import setuptools
 
 setuptools.setup(
     name='quantorch',
-    version='0.0.1',
+    version='0.0.2',
     packages=setuptools.find_packages(),
     install_requires=[
-        "pytorch==1.10.2",
+        "pytorch==2.0",
     ],
     url='https://github.com/jialuechen/quantorch',
     license='MIT',
