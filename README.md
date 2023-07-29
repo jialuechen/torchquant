@@ -17,6 +17,17 @@ PyTorch provides two high-level features:
 
 Quantorch makes use of these modern features on PyTorch library to build advanced stochastic models, high-performance pricing_models, PDE solvers and numerical methods.
 
+## Example
+* Binomial Tree Option Pircing Model
+* Black-Scholes Pricing Framework
+* Root-Finding Algorithms
+* Random Walk
+* Monte Carlo Simulation
+* Risk Management (e.g., Greeks Calculation, Hedging)
+* Bayesian Inference
+* ... (More hidden application in Quant Finance)
+
+
 ## Installation
 ```
 pip install --upgrade quantorch
