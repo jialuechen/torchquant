@@ -20,6 +20,10 @@ Quantorch makes use of these modern features on PyTorch library to build advance
 ## Example
 * Binomial Tree Option Pircing Model
 * Black-Scholes Pricing Framework
+```
+from quantorch.core.optionPricer import OptionPricer
+from quantorch.instruments.derivatives import Option
+```
 * Root-Finding Algorithms
 * Random Walk
 * Monte Carlo Simulation
