@@ -1,4 +1,4 @@
-<img decoding="async" src="quantorch-high-resolution-color-logo.png" width="50%">
+<img decoding="async" src="quantorch-high-resolution-color-logo.png">
 
 # QuanTorch : Quantitative Finance Research Framework Built on Deep Learning 
 
