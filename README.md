@@ -1,6 +1,6 @@
-<img algin="center" src="quantorch-high-resolution-color-logo.png" width="55%" loc>
+<img algin="center" src="quantorch-high-resolution-color-logo.png" width="50%" loc>
 
-# QuanTorch : Quantitative Finance Research Framework Built on Deep Learning 
+# A Quantitative Finance Research Framework Built on Deep Learning Technology
 
 [![python version](https://img.shields.io/badge/python-3.8+-brightgreen.svg)](https://github.com/jialuechen)
 ![PyPI](https://img.shields.io/pypi/v/0.0.1)
