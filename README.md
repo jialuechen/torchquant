@@ -1,12 +1,15 @@
-<div align=center >
+<div align=center>
 <img src="asset/quantorch-high-resolution-color-logo.png" width="50%" loc>
 </div>
+
+<div align=center>
 
 [![python version](https://img.shields.io/badge/python-3.8+-brightgreen.svg)](https://github.com/jialuechen)
 ![PyPI](https://img.shields.io/pypi/v/0.0.1)
 ![PyPI - License](https://img.shields.io/pypi/l/quantorch)
 
-# QuanTorch is a PyTorch-based Python Library for Quantitative Finance.
+# QuanTorch : a PyTorch-based Python Library for Quantitative Finance
+</div>
 
 ## Introduction
 QuanTorch is developed to empower quantitative research by providing modern deep learning computation and acceleration service. QuanTorch provides high-performance components leveraging the hardware acceleration support and automatic differentiation of PyTorch. QuanTorch supports foundational mathematical methods, mid-level methods, and specific pricing models, which is also an experimental light-weight alternative to QuantLib.
