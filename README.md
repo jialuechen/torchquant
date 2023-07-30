@@ -51,7 +51,16 @@ if torch.cuda.is_available():
    rate=rate.to(device)
    
 OptionPricer.price(
-    optionType,optionDirection,spot,strike,expiry,volatility,rate,dividend,pricingModel,device='GPU'
+    optionType,
+    optionDirection,
+    spot,
+    strike,
+    expiry,
+    volatility,
+    rate,
+    dividend,
+    pricingModel,
+    device='GPU'
     )
 ```
 * Binomial Tree Option Pircing Model
