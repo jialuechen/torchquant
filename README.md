@@ -1,5 +1,5 @@
 <div align=center>
-<img src="assets/quantorch-high-resolution-color-logo.png" width="50%" loc>
+<img src="assets/quantorch-high-resolution-color-logo.png" width="45%" loc>
 </div>
 
 <div align=center>
@@ -23,8 +23,7 @@ PyTorch provides two high-level features:
 Quantorch makes use of these modern features on PyTorch library to build advanced stochastic models, high-performance pricing_models, PDE solvers and numerical methods.
 
 ## Example
-* Binomial Tree Option Pircing Model
-* Black-Scholes-Merton Pricing Framework
+* Refined Black-Scholes-Merton Framework
 ```
 from quantorch.core.optionPricer import OptionPricer
 from torch import Tensor
@@ -37,14 +36,27 @@ rate=Tensor([0.01,0.05]),dividend=Tensor([0.01,0.02]),\
 pricingModel='BSM'
 
 # here we use GPU accleration as an example
+
+if torch.cuda.is_available():
+   device=torch.device("cuda")
+   spot=spot.to(device)
+   strike=strike.to(device)
+   expiry=expiry.to(device)
+   volatility=volatility.to(device)
+   rate=rate.to(device)
+   
 OptionPricer.price(
     optionType,optionDirection,spot,strike,expiry,volatility,rate,dividend,pricingModel,device='GPU'
     )
 ```
+* Binomial Tree Option Pircing Model
 * Root-Finding Algorithms
 * Random Walk
 * Monte Carlo Simulation
 * Risk Management (e.g., Greeks Calculation, Hedging)
+```
+
+```
 * Bayesian Inference
 * ... (More promising applications in quantitative finance)
 
