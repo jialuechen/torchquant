@@ -2,10 +2,11 @@ import setuptools
 
 setuptools.setup(
     name='quantorch',
-    version='0.0.2',
+    version='0.1.0',
     packages=setuptools.find_packages(),
     install_requires=[
         "pytorch==2.0",
+        "pandas==2.0.3"
     ],
     url='https://github.com/jialuechen/quantorch',
     license='MIT',

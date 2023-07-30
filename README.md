@@ -52,6 +52,32 @@ OptionPricer.price(
 * Binomial Tree Option Pircing Model
 * Root-Finding Algorithms
 * Random Walk
+```
+import torch
+from quantorch.models.rw import utils
+from quantorch.models.rw import rw
+import networkx as nx
+
+g = nx.Graph()
+
+g.add_edge("A","B")
+g.add_edge("A","C")
+g.add_edge("B","C")
+g.add_edge("B","D")
+g.add_edge("D","C")
+
+row_ptr, col_idx = utils.to_csr(g)
+nodes = utils.nodes_tensor(g)
+
+# using GPU
+device="cuda"
+row = row.to(device)
+col = col.to(device)
+nodes = nodes.to(device)
+
+walks = rw.walk(row=row,col=col,target_nodes=nodes,p=1.0,q=1.0,walk_length=6,seed=10)
+```
+
 * Monte Carlo Simulation
 * Risk Management (e.g., Greeks Calculation, Hedging)
 * Bayesian Inference
