@@ -24,16 +24,22 @@ Quantorch makes use of these modern features on PyTorch library to build advance
 
 ## Example
 * Binomial Tree Option Pircing Model
-* Black-Scholes Pricing Framework
+* Black-Scholes-Merton Pricing Framework
 ```
 from quantorch.core.optionPricer import OptionPricer
-from quantorch.instruments.derivatives import Option
 from torch import Tensor
 
-optionType='european',spot=Tensor([100]),strike=Tensor([120]),expiry=Tensor([1.0]),volatility=Tensor([0.1]),rate=Tensor([0.01])
+optionType='european',optionDirection='put',\
+spot=Tensor([100,95]),strike=Tensor([120,80]),\
+expiry=Tensor([1.0,0.75]),volatility=Tensor([0.1,0.3]),\
+rate=Tensor([0.01,0.05]),dividend=Tensor([0.01,0.02]),\
 
-OptionPricer.price(optionType,spot,strike,expiry,volatility,rate)
+pricingModel='BSM'
 
+# here we use GPU accleration as an example
+OptionPricer.price(
+    optionType,optionDirection,spot,strike,expiry,volatility,rate,dividend,pricingModel,device='GPU'
+    )
 ```
 * Root-Finding Algorithms
 * Random Walk
