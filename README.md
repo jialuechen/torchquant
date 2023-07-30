@@ -54,9 +54,6 @@ OptionPricer.price(
 * Random Walk
 * Monte Carlo Simulation
 * Risk Management (e.g., Greeks Calculation, Hedging)
-```
-
-```
 * Bayesian Inference
 * ... (More promising applications in quantitative finance)
 
