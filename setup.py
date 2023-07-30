@@ -6,7 +6,8 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=[
         "pytorch==2.0",
-        "pandas==2.0.3"
+        "pandas==2.0.3",
+        "networkx==3.1"
     ],
     url='https://github.com/jialuechen/quantorch',
     license='MIT',

@@ -12,7 +12,7 @@
 </div>
 
 ## Introduction
-QuanTorch is developed to empower quantitative research by providing modern deep learning computation and acceleration service. QuanTorch provides high-performance components leveraging the hardware acceleration support and automatic differentiation of PyTorch. QuanTorch supports foundational mathematical methods, mid-level methods, and specific pricing models, which is also an experimental light-weight alternative to QuantLib.
+QuanTorch is developed to empower quantitative research by providing modern machine learning computation and acceleration service. QuanTorch provides high-performance components leveraging the hardware acceleration support and automatic differentiation of PyTorch. QuanTorch supports foundational mathematical methods, mid-level methods, and specific pricing models, which is also an experimental light-weight alternative to QuantLib.
 
 ## Motivation
 PyTorch provides two high-level features: 
@@ -21,6 +21,11 @@ PyTorch provides two high-level features:
 * Automatic Differentiation System
 
 Quantorch makes use of these modern features on PyTorch library to build advanced stochastic models, high-performance pricing_models, PDE solvers and numerical methods.
+
+## Installation
+```
+pip install --upgrade quantorch
+```
 
 ## Example
 * Refined Black-Scholes-Merton Framework
@@ -84,10 +89,7 @@ walks = rw.walk(row=row,col=col,target_nodes=nodes,p=1.0,q=1.0,walk_length=6,see
 * ... (More promising applications in quantitative finance)
 
 
-## Installation
-```
-pip install --upgrade quantorch
-```
+
 
 ## License
 
