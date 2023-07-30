@@ -1,8 +1,5 @@
-from quantorch.bsm.bsm import BSM_EuropeanOption
-
 from enum import Enum
-
-from utils import calculate_payoff
+from torch import Tensor
 
 class OptionTypes(Enum):
 
@@ -17,22 +14,25 @@ class Option:
         self.__init__(self,*args,**kwargs)
 
 class EuropeanOption:
-    def __init__(self,underlying_price,strike:float=1.0,is_call:bool=True,dividend:float=0,risk_free_rate:float=0.0,maturity:float=1.0):
-        self.underlying_price=underlying_price
+    def __init__(self,spot:Tensor,strike:Tensor,is_call:bool=True,dividend:float=0,risk_free_rate:float=0.0,expiry:float=1.0):
+        self.underlying_price=spot
         self.strike=strike
         self.is_call=is_call
         self.dividend=dividend
         self.risk_free_rate=risk_free_rate
-        self.maturity=maturity
-    
-    def payoff(self,underlying_price,is_call,strike):
-        return calculate_payoff(underlying_price=underlying_price,strike=strike, is_call=is_call,optionType='european')
+        self.expiry=expiry
+    '''
+    def payoff(self,spot:Tensor,is_call,strike:Tensor):
+        return calculate_payoff(spot=spot,strike=strike, is_call=is_call,optionType='european')
+    '''
 
 class AmericanOption:
     pass
 
+
 class AsianOption:
     pass
+
 
 class BermudanOption:
     pass

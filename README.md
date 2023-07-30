@@ -1,5 +1,5 @@
 <div align=center>
-<img src="asset/quantorch-high-resolution-color-logo.png" width="50%" loc>
+<img src="assets/quantorch-high-resolution-color-logo.png" width="50%" loc>
 </div>
 
 <div align=center>
@@ -28,13 +28,19 @@ Quantorch makes use of these modern features on PyTorch library to build advance
 ```
 from quantorch.core.optionPricer import OptionPricer
 from quantorch.instruments.derivatives import Option
+from torch import Tensor
+
+optionType='european',spot=Tensor([100]),strike=Tensor([120]),expiry=Tensor([1.0]),volatility=Tensor([0.1]),rate=Tensor([0.01])
+
+OptionPricer.price(optionType,spot,strike,expiry,volatility,rate)
+
 ```
 * Root-Finding Algorithms
 * Random Walk
 * Monte Carlo Simulation
 * Risk Management (e.g., Greeks Calculation, Hedging)
 * Bayesian Inference
-* ... (More hidden application in Quant Finance)
+* ... (More promising applications in quantitative finance)
 
 
 ## Installation
