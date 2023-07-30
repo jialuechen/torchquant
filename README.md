@@ -8,7 +8,7 @@
 ![PyPI](https://img.shields.io/pypi/v/0.0.1)
 ![PyPI - License](https://img.shields.io/pypi/l/quantorch)
 
-# QuanTorch : a PyTorch-based Python Library for Quantitative Finance
+# PyTorch-based Python Library for Quantitative Finance
 </div>
 
 ## Introduction
