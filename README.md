@@ -80,7 +80,7 @@ g.add_edge("B","C")
 g.add_edge("B","D")
 g.add_edge("D","C")
 
-row_ptr, col_idx = utils.to_csr(g)
+row, col = utils.to_csr(g)
 nodes = utils.nodes_tensor(g)
 
 # using GPU
