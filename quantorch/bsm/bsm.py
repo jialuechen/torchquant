@@ -12,10 +12,11 @@ class BSM:
         return (torch.log(spot/strike)+(rate-dividend+volatility**2/2)*expiry)/(volatility*torch.sqrt(expiry))
     
     def d2(self,strike:Tensor,spot:Tensor,expiry:Tensor,rate:Tensor,volatility:Tensor,dividend:Tensor)->Tensor:
-        return (torch.log(spot/strike)-(rate-dividend+volatility**2/2)*expiry)/(volatility*torch.sqrt(expiry))
+        return (torch.log(spot/strike)-(rate-dividend-volatility**2/2)*expiry)/(volatility*torch.sqrt(expiry))
     
     def forward(self,isCall:True,strike:Tensor,spot:Tensor,expiry:Tensor,rate:Tensor,volatility:Tensor,dividend:Tensor)->Tensor:
-        callPrice=spot*self.nd(self.d1(volatility,strike,spot,expiry,rate,dividend))*torch.exp(-dividend*expiry)-strike*self.nd(self.d2(volatility,strike,spot,expiry,rate,dividend))*torch.exp(-rate*expiry)
+        callPrice=spot*self.nd(self.d1(volatility,strike,spot,expiry,rate,dividend))*torch.exp(-dividend*expiry)-\
+            strike*self.nd(self.d2(volatility,strike,spot,expiry,rate,dividend))*torch.exp(-rate*expiry)
         if not isCall:
             return strike*torch.exp(-rate*expiry)-spot+callPrice
         return callPrice
