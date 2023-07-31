@@ -8,14 +8,14 @@ class BSM:
         setattr(normal_dist,"cdf",lambda input:normal_dist.log_prob(input).exp())
         return normal_dist
     
-    def d1(self,strike:Tensor,spot:Tensor,expiry:Tensor,rate:Tensor,volatility:Tensor)->Tensor:
-        volatility,s,k,expiry=map(torch.as_tensor,(volatility,spot,strike,expiry))
-        return (torch.log(spot/strike)+(volatility**2/2)*expiry)/(volatility*torch.sqrt(expiry))
+    def d1(self,strike:Tensor,spot:Tensor,expiry:Tensor,rate:Tensor,volatility:Tensor,dividend:Tensor)->Tensor:
+        return (torch.log(spot/strike)+(rate-dividend+volatility**2/2)*expiry)/(volatility*torch.sqrt(expiry))
     
-    def d2(self,strike:Tensor,spot:Tensor,expiry:Tensor,rate:Tensor,volatility:Tensor)->Tensor:
-        volatility,s,k,expiry=map(torch.as_tensor,(volatility,spot,strike,expiry))
-        return (torch.log(s/k)-(volatility**2/2)*expiry)/(volatility*torch.sqrt(expiry))
+    def d2(self,strike:Tensor,spot:Tensor,expiry:Tensor,rate:Tensor,volatility:Tensor,dividend:Tensor)->Tensor:
+        return (torch.log(spot/strike)-(rate-dividend+volatility**2/2)*expiry)/(volatility*torch.sqrt(expiry))
     
-    def forward(self,dividend:Tensor,strike:Tensor,spot:Tensor,expiry:Tensor,rate:Tensor,volatility:Tensor)->Tensor:
-        return spot*self.nd(self.d1(volatility,strike,spot,expiry,rate))*torch.exp(-dividend)-strike*self.nd(self.d2(volatility,strike,spot,expiry,rate))*torch.exp(-rate)
-
+    def forward(self,isCall:True,strike:Tensor,spot:Tensor,expiry:Tensor,rate:Tensor,volatility:Tensor,dividend:Tensor)->Tensor:
+        callPrice=spot*self.nd(self.d1(volatility,strike,spot,expiry,rate,dividend))*torch.exp(-dividend*expiry)-strike*self.nd(self.d2(volatility,strike,spot,expiry,rate,dividend))*torch.exp(-rate*expiry)
+        if not isCall:
+            return strike*torch.exp(-rate*expiry)-spot+callPrice
+        return callPrice

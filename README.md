@@ -49,7 +49,8 @@ if torch.cuda.is_available():
    expiry=expiry.to(device)
    volatility=volatility.to(device)
    rate=rate.to(device)
-   
+
+# call the forward function in BSM pricing model
 OptionPricer.price(
     optionType,
     optionDirection,
@@ -96,8 +97,6 @@ walks = rw.walk(row=row,col=col,target_nodes=nodes,p=1.0,q=1.0,walk_length=6,see
 * Risk Management (e.g., Greeks Calculation, Hedging)
 * Bayesian Inference
 * ... (More promising applications in quantitative finance)
-
-
 
 
 ## License
