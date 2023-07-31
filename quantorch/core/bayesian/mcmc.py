@@ -86,12 +86,11 @@ class Model(Distribution):
         self.parameters = {}
     
     def iter_params(self):
-        """ Return a generator that yields two element tuples (name: String, param: Parameter)."""
         for name, param  in self.parameters.items():
             yield name, param
     
     def update(self, param_dict):
-        """ Update parameters with a dictionary {name: param} """
+       
         for name, param in param_dict.items():
             self.parameters[name][:] = param
         
@@ -102,7 +101,6 @@ class Model(Distribution):
         super().__setattr__(name, value)
 
 def dist_sum(*distributions):
-    """ Returns the sums of the log-probabilities of an arbitrary number of Distributions """
     return sum(x.logp() for x in distributions)
 
 class BEST(Model):
@@ -119,7 +117,6 @@ class BEST(Model):
         llh1 = Normal(self.group1, mu=self.mu[0], sig=self.sigma[0])
         llh2 = Normal(self.group2, mu=self.mu[1], sig=self.sigma[1])
         
-        # Priors
         prior_mu = Normal(self.mu, mu=0., sig=1.)
         prior_sig = Uniform(self.sigma, 0., 100.)
         
@@ -170,9 +167,7 @@ class Sampler:
         self.model = model
     
     def step(self):
-        """ This should return a 1D tensor with length equal to the total number 
-            of parameters in the model, corresponding to the next sample in the chain.
-        """
+       
         raise NotImplementedError
     
     def sample(self, num, burn=1, thin=1):
@@ -197,13 +192,12 @@ class Metropolis(Sampler):
         self._sampled = 0
     
     def step(self):
-        """ Perform a Metropolis-Hastings step. """
+        
         model = self.model
         logp = model()
         state = {name: param.clone() for name, param in model.iter_params()}
         
-        # Get a new state by sampling from a multivariate normal distribution with center
-        # at the current parameter state
+        
         for name in state:
             self.proposal_dist.loc = state[name]
             new_state = self.proposal_dist.sample(state[name].shape)
@@ -211,15 +205,13 @@ class Metropolis(Sampler):
         
         new_logp = model()
         
-        # Here we're checking if we accept the new state or not
-        # If we don't, set the model back to the current state
-        # Otherwise, keep the new state and accept the step
+        
         if not accept(logp, new_logp):
             model.update(state)
-            #print("Not accepted")
+            
         else:
             self._accepted += 1
-            #print("Accepted")
+            
         
         self._sampled += 1
         self._steps_until_tune -= 1
@@ -245,26 +237,19 @@ def accept(old_logp, new_logp):
         return False
     
 def tune(scale, acceptance):
-    """ Borrowed from PyMC3 """
 
-    # Switch statement
+ 
     if acceptance < 0.001:
-        # reduce by 90 percent
         scale *= 0.1
     elif acceptance < 0.05:
-        # reduce by 50 percent
         scale *= 0.5
     elif acceptance < 0.2:
-        # reduce by ten percent
         scale *= 0.9
     elif acceptance > 0.95:
-        # increase by factor of ten
         scale *= 10.0
     elif acceptance > 0.75:
-        # increase by double
         scale *= 2.0
     elif acceptance > 0.5:
-        # increase by ten percent
         scale *= 1.1
 
     return scale
@@ -276,10 +261,8 @@ class Linear(Model):
         self.features = features
         self.outcomes = outcomes
         
-        # Linear coefficients
         self.beta = Parameter.zeros(3, 1)
         
-        # likelihood parameters, prediction error
         self.sigma = Parameter([1.])
         
     def logp(self):
