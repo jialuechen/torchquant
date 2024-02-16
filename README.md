@@ -12,7 +12,7 @@
 </div>
 
 ## Introduction
-QuanTorch is developed to empower quantitative research by providing modern machine learning computation and acceleration service. QuanTorch provides high-performance components leveraging the hardware acceleration support and automatic differentiation of PyTorch. QuanTorch supports foundational mathematical methods, mid-level methods, and specific pricing models, which is also an experimental light-weight alternative to QuantLib.
+QuanTorch is developed to empower derivatives modeling and pricing by incorporating deep learning computation and acceleration service. QuanTorch provides high-performance components leveraging the hardware acceleration support and automatic differentiation of PyTorch. QuanTorch supports foundational mathematical methods, mid-level methods, and specific pricing models, which is also an experimental light-weight alternative to QuantLib.
 
 ## Motivation
 PyTorch provides two high-level features: 
