@@ -102,4 +102,4 @@ walks = rw.walk(row=row,col=col,target_nodes=nodes,p=1.0,q=1.0,walk_length=6,see
 
 ## License
 
-MIT License
+Apache-2.0
