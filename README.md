@@ -101,6 +101,41 @@ walks = rw.walk(row=row,col=col,target_nodes=nodes,p=1.0,q=1.0,walk_length=6,see
 
 ## Roadmap
 
+QuanTorch is continuously evolving to meet the needs of quantitative finance professionals. Here's our roadmap for future development:
+
+1. Q3 2024: Enhanced Model Suite
+   - Implement Heston stochastic volatility model
+   - Add support for Asian options pricing
+   - Develop a comprehensive suite of fixed income models
+
+2. Q4 2024: Advanced Risk Management Tools
+   - Implement Value at Risk (VaR) and Expected Shortfall calculations
+   - Develop stress testing frameworks
+   - Add support for portfolio optimization techniques
+
+3. Q1 2025: Machine Learning Integration
+   - Implement neural network-based option pricing models
+   - Develop reinforcement learning algorithms for trading strategies
+   - Add support for time series forecasting using LSTM and transformer models
+
+4. Q2 2025: High-Performance Computing
+   - Optimize core algorithms for multi-GPU support
+   - Implement distributed computing capabilities for large-scale simulations
+   - Develop a C++ backend for critical performance bottlenecks
+
+5. Q3 2025: Extended Asset Classes
+   - Add support for cryptocurrency derivatives
+   - Implement models for commodity futures and options
+   - Develop frameworks for exotic derivatives and structured products
+
+6. Ongoing Initiatives:
+   - Continuous performance optimization
+   - Regular updates to align with the latest PyTorch releases
+   - Expansion of documentation and educational resources
+   - Community-driven feature development and bug fixes
+
+We're committed to making QuanTorch a robust and versatile tool for quantitative finance. Your feedback and contributions are welcome as we work towards these goals.
+
 ## License
 
 Apache-2.0

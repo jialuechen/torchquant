@@ -14,5 +14,5 @@ setuptools.setup(
     license='MIT',
     author='Jialue Chen',
     author_email='jialuechen@outlook.com',
-    description='A PyTorch-Based Python Library for Quantitative Finance'
+    description='A PyTorch-Based Python Library for Derivatives and Pricing'
 )
