@@ -9,7 +9,7 @@
 ![PyPI - License](https://img.shields.io/badge/license-apache_2.0-Green
 )
 
-# PyTorch-based Python Library for Quant Finance
+# PyTorch for Quant Finance
 </div>
 
 ## Introduction
