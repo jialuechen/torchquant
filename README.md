@@ -129,7 +129,7 @@ for greek, value in greeks.items():
 ```
 
 This example demonstrates how to use QuanTorch's Malliavin calculus module to calculate option Greeks with high precision. The `calculate_greeks` method utilizes Monte Carlo simulation with Malliavin weights to compute Delta, Gamma, and Vega for European options.
-```
+
 
 * Monte Carlo Simulation
 * Risk Management (e.g., Greeks Calculation, Hedging)
