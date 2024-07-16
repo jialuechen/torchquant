@@ -65,9 +65,7 @@ OptionPricer.price(
     device='GPU'
     )
 ```
-* Binomial Tree Option Pircing Model
-* Root-Finding Algorithms
-* Random Walk
+
 ```
 import torch
 from quantorch.models.rw import utils
@@ -130,11 +128,12 @@ for greek, value in greeks.items():
 
 This example demonstrates how to use QuanTorch's Malliavin calculus module to calculate option Greeks with high precision. The `calculate_greeks` method utilizes Monte Carlo simulation with Malliavin weights to compute Delta, Gamma, and Vega for European options.
 
-
+* Binomial Tree Option Pircing Model
+* Root-Finding Algorithms
+* Random Walk
 * Monte Carlo Simulation
 * Risk Management (e.g., Greeks Calculation, Hedging)
 * Bayesian Inference
-* ... (More promising applications in quantitative finance)
 
 ## Roadmap
 
