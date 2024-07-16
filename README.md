@@ -94,6 +94,43 @@ nodes = nodes.to(device)
 walks = rw.walk(row=row,col=col,target_nodes=nodes,p=1.0,q=1.0,walk_length=6,seed=10)
 ```
 
+
+
+### Greeks Calculation using Malliavin Calculus
+```python
+from quantorch.core.optionPricer import OptionPricer
+
+# Define option parameters
+spot = 100.0
+strike = 100.0
+expiry = 1.0
+volatility = 0.2
+rate = 0.05
+dividend = 0.0
+
+# Calculate Greeks using Malliavin method
+greeks = OptionPricer.calculate_greeks(
+    optionType='european',
+    optionDirection='call',
+    spot=spot,
+    strike=strike,
+    expiry=expiry,
+    volatility=volatility,
+    rate=rate,
+    dividend=dividend,
+    method='malliavin',
+    num_paths=100000,
+    num_steps=252
+)
+
+print("Greeks calculated using Malliavin method:")
+for greek, value in greeks.items():
+    print(f"{greek.capitalize()}: {value:.6f}")
+```
+
+This example demonstrates how to use QuanTorch's Malliavin calculus module to calculate option Greeks with high precision. The `calculate_greeks` method utilizes Monte Carlo simulation with Malliavin weights to compute Delta, Gamma, and Vega for European options.
+```
+
 * Monte Carlo Simulation
 * Risk Management (e.g., Greeks Calculation, Hedging)
 * Bayesian Inference
