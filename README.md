@@ -8,6 +8,7 @@
 ![PyPI](https://img.shields.io/pypi/v/0.0.1)
 ![PyPI - License](https://img.shields.io/badge/license-apache_2.0-Green
 )
+[![Documentation Status](https://readthedocs.org/projects/pytca/badge/?version=latest)](https://pytca.readthedocs.io/en/latest/?badge=latest)
 
 # PyTorch for Quant Finance
 </div>
