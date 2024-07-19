@@ -26,7 +26,7 @@ Quantorch makes use of these modern features on PyTorch library to build advance
 
 ## Installation
 ```
-pip install --upgrade quantorch
+pip install quantorch==0.2.3
 ```
 
 ## Example
