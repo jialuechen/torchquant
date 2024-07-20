@@ -4,7 +4,7 @@
 
 <div align=center>
 
-[![python version](https://img.shields.io/badge/python-3.10|3.11.|3.12-blue.svg)](https://github.com/jialuechen)
+[![python version](https://img.shields.io/badge/python-3.10|3.11|3.12-blue.svg)](https://github.com/jialuechen)
 ![PyPI](https://img.shields.io/pypi/v/0.0.1)
 ![PyPI - License](https://img.shields.io/badge/license-apache_2.0-Green)
 ![PyPI downloads](https://img.shields.io/pypi/dm/quantorch)
