@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 setup(
     name="quantorch",
-    version="0.1.0",
+    version="1.0.0",
     description="Quantitative Finance Library using PyTorch",
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Jialue Chen",
+    author_email="jialuechen@outlook.com",
     url="https://github.com/jialuechen/quantorch",
     packages=find_packages(),
     install_requires=[
@@ -17,7 +17,7 @@ setup(
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: Apache-2.0 License",
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',

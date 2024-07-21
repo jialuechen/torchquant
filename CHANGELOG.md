@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.0] - 2024-07-20
+## [1.0.0] - 2024-07-20
 ### Added
 - Initial release of QuanTorch.
 - Core modules for asset pricing, risk management, and model calibration.
