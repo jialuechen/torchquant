@@ -1,18 +1,22 @@
-import setuptools
+from setuptools import setup, find_packages
 
-setuptools.setup(
+setup(
     name='quantorch',
-    version='0.2.0',
-    packages=setuptools.find_packages(),
+    version='1.0.0',
+    packages=find_packages(),
     install_requires=[
-        "pytorch==2.3.1",
-        "pandas==2.2.2",
-        "networkx==3.3",
-        "py_vollib==1.0.3"
+        'torch>=1.8.0',
+        'numpy>=1.19.2',
+        'scipy>=1.6.0'
     ],
-    url='https://github.com/jialuechen/quantorch',
-    license='MIT',
-    author='Jialue Chen',
-    author_email='jialuechen@outlook.com',
-    description='A PyTorch-Based Python Library for Derivatives and Pricing'
+    author='Your Name',
+    author_email='your.email@example.com',
+    description='A quantitative finance library leveraging PyTorch.',
+    url='https://github.com/yourusername/quantorch',
+    classifiers=[
+        'Programming Language :: Python :: 3.8',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+    ],
+    python_requires='>=3.8',
 )
