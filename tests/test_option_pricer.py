@@ -1,29 +1,13 @@
-import unittest
-from quantorch.core.optionPricer import OptionPricer
-from torch import Tensor
+import torch
+from quantorch.core.asset_pricing.option_pricing.black_scholes_merton import black_scholes_merton
 
-class TestOptionPricer(unittest.TestCase):
-    
-    def test_bsm_pricing(self):
-        spot = Tensor([100])
-        strike = Tensor([120])
-        expiry = Tensor([1.0])
-        volatility = Tensor([0.1])
-        rate = Tensor([0.01])
-        dividend = Tensor([0.01])
-        price = OptionPricer.price(
-            optionType='european',
-            optionDirection='put',
-            spot=spot,
-            strike=strike,
-            expiry=expiry,
-            volatility=volatility,
-            rate=rate,
-            dividend=dividend,
-            pricingModel='BSM',
-            device='cpu'
-        )
-        self.assertIsNotNone(price, "Price should not be None")
+def test_black_scholes_merton():
+    spot = torch.tensor(100.0)
+    strike = torch.tensor(105.0)
+    expiry = torch.tensor(1.0)
+    volatility = torch.tensor(0.2)
+    rate = torch.tensor(0.05)
+    dividend = torch.tensor(0.02)
 
-if __name__ == '__main__':
-    unittest.main()
+    price = black_scholes_merton('call', 'european', spot, strike, expiry, volatility, rate, dividend)
+    assert torch.isclose(price, torch.tensor(5.9436), atol=1e-4)
