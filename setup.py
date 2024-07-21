@@ -3,9 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name="quantorch",
     version="1.0.0",
-    description="Quantitative Finance Library using PyTorch",
+    description="High-Performance PyTorch Library for Derivatives Pricing",
     long_description=open('README.md').read(),
-    long_description_content_type='text/markdown',
     author="Jialue Chen",
     author_email="jialuechen@outlook.com",
     url="https://github.com/jialuechen/quantorch",
@@ -17,7 +16,7 @@ setup(
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: Apache-2.0 License",
+        "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
