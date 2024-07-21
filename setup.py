@@ -4,7 +4,6 @@ setup(
     name="quantorch",
     version="1.0.0",
     description="High-Performance PyTorch Library for Derivatives Pricing",
-    long_description=open('README.md').read(),
     author="Jialue Chen",
     author_email="jialuechen@outlook.com",
     url="https://github.com/jialuechen/quantorch",

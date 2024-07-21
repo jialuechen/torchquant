@@ -1,4 +1,3 @@
-
 <div align=center>
 <img src="assets/img/quantorch_logo.png" width="40%" loc>
 
