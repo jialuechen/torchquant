@@ -1,5 +1,5 @@
 <div align=center>
-<img src="assets/quantorch_logo.png" width="40%" loc>
+<img src="assets/img/quantorch_logo.png" width="40%" loc>
 </div>
 
 <div align=center>
