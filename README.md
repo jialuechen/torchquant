@@ -45,7 +45,7 @@ You can install QuanTorch via pip:
 pip install quantorch
 ```
 
-## Usage
+## Usage (check out the examples folder for more information)
 
 ### Exotic Options
 
