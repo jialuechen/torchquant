@@ -1,10 +1,9 @@
+<div align=center>
+<img src="assets/img/quantorch_logo.png" width="40%" loc>
+
 # QuanTorch
 
-<div loc=center width="200" height="180">
-
-![QuanTorch Logo](/assets/img/quantorch_logo.png)
-
-<div>
+</div>
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/jialuechen/quantorch/python-package.yml)](https://github.com/jialuechen/quantorch/actions)
 [![PyPI version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/quantorch/)
