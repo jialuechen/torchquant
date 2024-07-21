@@ -8,7 +8,7 @@
 [![License](https://img.shields.io/github/license/jialuechen/quantorch)](https://github.com/jialuechen/quantorch/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/pypi/dm/quantorch)](https://pypi.org/project/quantorch/)
 [![Docs Status](https://readthedocs.org/projects/quantorch/badge/?version=latest)](https://quantorch.readthedocs.io/en/latest/)
-![Python versions](https://img.shields.io/badge/python-3.6+%2B-green)
+![Python versions](https://img.shields.io/badge/python-3.6%2B-green)
 </div>
 
 QuanTorch is a comprehensive quantitative finance library built on top of PyTorch. It provides a range of tools for asset pricing, risk management, and model calibration.
