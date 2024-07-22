@@ -17,8 +17,8 @@ QuanTorch is a comprehensive quantitative finance library built on top of PyTorc
 
 - **Asset Pricing**:
   - Option pricing models including Black-Scholes-Merton, binomial tree, and Monte Carlo simulations.
-  - Bond pricing models including zero-coupon, coupon, callable, putable, and convertible bonds.
-  - Advanced options support including American, Bermudan, Asian, and barrier options.
+  - Bond pricing models including callable, putable, and convertible bonds.
+  - Advanced options support including American, Bermudan, Asian, barrier and look-back options.
   - Implied volatility calculation using "Let's be rational" algorithm.
   - Futures and currency pricing.
 
