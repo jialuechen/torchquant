@@ -1,6 +1,9 @@
 <div align=center>
 <img src="assets/img/quantorch_logo.png" width="40%" loc>
+</div>
 
+<div>
+  
 # QuanTorch : High-Performance PyTorch Library for Derivatives Pricing
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/jialuechen/quantorch/python-package.yml)](https://github.com/jialuechen/quantorch/actions)
@@ -9,6 +12,7 @@
 [![Downloads](https://img.shields.io/pypi/dm/quantorch)](https://pypi.org/project/quantorch/)
 [![Docs Status](https://readthedocs.org/projects/quantorch/badge/?version=latest)](https://quantorch.readthedocs.io/en/latest/)
 ![Python versions](https://img.shields.io/badge/python-3.6%2B-green)
+
 </div>
 
 QuanTorch is a comprehensive quantitative finance library built on top of PyTorch. It provides a range of tools for asset pricing, risk management, and model calibration based on PyTorch's GPU accelerateion and automatic differentiation.
