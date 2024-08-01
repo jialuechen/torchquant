@@ -2,7 +2,7 @@
 <img src="assets/img/quantorch_logo.png" width="40%" loc>
 </div>
 
-<div>
+<div align=center>
   
 # QuanTorch : High-Performance PyTorch Library for Derivatives Pricing
 
