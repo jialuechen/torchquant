@@ -15,7 +15,7 @@
 
 </div>
 
-QuanTorch is a comprehensive quantitative finance library built on top of PyTorch. It provides a range of tools for asset pricing, risk management, and model calibration based on PyTorch's GPU accelerateion and automatic differentiation.
+QuanTorch is a comprehensive derivatives pricing library built on top of PyTorch. It provides a range of tools for asset pricing, risk management, and model calibration based on PyTorch's GPU accelerateion and automatic differentiation.
 
 ## Features
 
