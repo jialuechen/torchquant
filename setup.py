@@ -9,9 +9,9 @@ setup(
     url="https://github.com/jialuechen/quantorch",
     packages=find_packages(),
     install_requires=[
-        "torch>=1.7.1",
-        "numpy>=1.19.2",
-        "scipy>=1.5.2"
+        "torch",
+        "numpy",
+        "scipy"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -4,7 +4,7 @@
 
 <div align=center>
   
-# QuanTorch : High-Performance PyTorch Library for Derivatives Pricing
+# QuanTorch : High-Performance Torch Library for Derivatives Pricing
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/jialuechen/quantorch/python-package.yml)](https://github.com/jialuechen/quantorch/actions)
 [![PyPI version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/quantorch/)

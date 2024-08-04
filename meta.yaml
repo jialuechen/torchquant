@@ -1,0 +1,23 @@
+package:
+  name:quantorch
+  version:1.0.0
+
+source:
+  path: .
+
+build:
+  number:0
+  script:python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+test:
+  imports:
+    - quantorch
+
+about:
+  home:
+  license: Apache License 2.0
