@@ -22,12 +22,12 @@ QuanTorch is a comprehensive derivatives pricing library built on top of PyTorch
 - **Asset Pricing**:
   - Option pricing models including Black-Scholes-Merton, binomial tree, and Monte Carlo simulations.
   - Bond pricing models including callable, putable, and convertible bonds.
-  - Advanced options support including American, Bermudan, Asian, barrier and look-back options.
+  - Advanced options support for American, Bermudan, Asian, barrier and look-back options.
   - Implied volatility calculation using "Let's be rational" algorithm.
   - Futures and currency pricing.
 
 - **Risk Management**:
-  - Greeks calculation including Malliavin calculus.
+  - Greeks calculation utilizing Malliavin calculus.
   - Scenario analysis and stress testing.
   - Market risk measures such as VaR and Expected Shortfall.
   - Credit risk models including structural and reduced form models.
