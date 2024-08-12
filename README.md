@@ -46,7 +46,7 @@ QuanTorch is a comprehensive derivatives pricing library built on top of PyTorch
 You can install QuanTorch via pip:
 
 ```bash
-pip install quantorch
+pip install -U quantorch
 ```
 
 ## Usage (check out the examples folder for more information)
