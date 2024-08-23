@@ -4,7 +4,7 @@
 
 <div align=center>
   
-# QuanTorch : High-Performance Torch Library for Derivatives Pricing
+# QuanTorch : High-Performance Differentiable PyTorch Library for Derivatives Pricing
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/jialuechen/quantorch/python-package.yml)](https://github.com/jialuechen/quantorch/actions)
 [![PyPI version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/quantorch/)
@@ -15,7 +15,8 @@
 
 </div>
 
-QuanTorch is a comprehensive derivatives pricing library built on top of PyTorch. It provides a range of tools for asset pricing, risk management, and model calibration based on PyTorch's GPU accelerateion and automatic differentiation.
+QuanTorch is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
+differentiable pricing framework with high-accuracy of numerical methods. It provides comprehensive tools for asset pricing, risk management, and model calibration.
 
 ## Features
 
