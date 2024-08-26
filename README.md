@@ -6,12 +6,6 @@
   
 # QuanTorch : High-Performance Differentiable PyTorch Library for Derivatives Pricing
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/jialuechen/quantorch/python-package.yml)](https://github.com/jialuechen/quantorch/actions)
-[![PyPI version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/quantorch/)
-[![License](https://img.shields.io/github/license/jialuechen/quantorch)](https://github.com/jialuechen/quantorch/blob/main/LICENSE)
-[![Downloads](https://img.shields.io/pypi/dm/quantorch)](https://pypi.org/project/quantorch/)
-[![Docs Status](https://readthedocs.org/projects/quantorch/badge/?version=latest)](https://quantorch.readthedocs.io/en/latest/)
-![Python versions](https://img.shields.io/badge/python-3.6%2B-green)
 
 </div>
 
@@ -20,7 +14,7 @@ differentiable pricing framework with high-accuracy of numerical methods. It pro
 
 ## Advantages
 - fast and accurate implementation of erf function (hence the normal distribution too), which is actually two orders of magnitude faster than its equivalent in scipy.stats
-- overcome the drawbacks of finite difference methods in quant finance, such as the need for re-valuation computation and approximation errors
+- overcome the drawbacks of finite difference method in quant finance, such as the need for re-valuation computation and approximation errors
 
 ## Features
 
