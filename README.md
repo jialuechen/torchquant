@@ -6,6 +6,12 @@
   
 # QuanTorch : High-Performance Differentiable PyTorch Library for Derivatives Pricing
 
+[![PyPI - Version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/quantorch/)
+[![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/quantorch/)
+![PyPI downloads](https://img.shields.io/pypi/dm/quantorch)
+[![Documentation Status](https://readthedocs.org/projects/quantorch/badge/?version=latest)](https://quantorch.readthedocs.io/en/latest/?badge=latest)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Coverage Status](https://coveralls.io/repos/github/jialuechen/quantorch/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/quantorch?branch=main)
 
 </div>
 
