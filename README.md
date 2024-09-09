@@ -41,10 +41,12 @@ differentiable pricing framework with high-accuracy of numerical methods. It pro
 - **Neural Network-based Model Calibration**:
   - Calibration for stochastic models like Heston, Vasicek, SABR, and more.
   - Local volatility models including Dupire.
+ 
+- ** PDE Solver
+  - Seq2Seq to solve PDEs in quant finance
 
 - **Machine Learning and Reinforcement Learning**:
   - Regression and classification models using PyTorch.
-  - Reinforcement learning examples.
 
 ## Installation
 
