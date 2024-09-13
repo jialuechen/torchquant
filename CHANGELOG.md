@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.0] - 2024-09-11
+### Added
+- Seq2Seq ODE and PDE solvers
+
 ## [1.0.0] - 2024-07-20
 ### Added
 - Initial release of QuanTorch.
