@@ -1,6 +1,7 @@
 import torch
 from torch import Tensor
 from scipy.optimize import minimize
+from models.interest_rate import vasicek_model as VasicekModel
 
 def vasicek_loss(params, market_rates, times):
     kappa, theta, sigma = params
