@@ -143,6 +143,33 @@ params = calibrate_heston(market_prices, strikes, expiries, spot, rate)
 print(f'Calibrated Heston Parameters: {params}')
 ```
 
+## Seq2Seq PDE Solver
+```python
+from quantorch.utils import Seq2SeqPDESolver
+# Define model parameters
+input_dim = 1      # Adjust based on your input features
+hidden_dim = 64    # Number of features in the hidden state
+output_dim = 1     # Adjust based on your output features
+num_layers = 2     # Number of stacked LSTM layers
+
+# Initialize the model, loss function, and optimizer
+model = Seq2SeqPDESolver(input_dim, hidden_dim, output_dim, num_layers)
+criterion = nn.MSELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+# Training loop (simplified)
+num_epochs = 100
+for epoch in range(num_epochs):
+    model.train()
+    optimizer.zero_grad()
+    output = model(src, trg)
+    loss = criterion(output, trg)
+    loss.backward()
+    optimizer.step()
+    
+    print(f'Epoch {epoch+1}/{num_epochs}, Loss: {loss.item():.4f}')
+```
+
 ## Credit Risk Management Example
 ```python
 import torch
