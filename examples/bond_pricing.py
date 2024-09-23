@@ -1,7 +1,7 @@
 import torch
-from quantorch.core.asset_pricing.bond_pricing.zero_coupon_bond import zero_coupon_bond
-from quantorch.core.asset_pricing.bond_pricing.coupon_bond import coupon_bond
-from quantorch.core.asset_pricing.bond_pricing.stochastic_rate_bond import stochastic_rate_bond
+from torchquant.core.asset_pricing.bond_pricing.zero_coupon_bond import zero_coupon_bond
+from torchquant.core.asset_pricing.bond_pricing.coupon_bond import coupon_bond
+from torchquant.core.asset_pricing.bond_pricing.stochastic_rate_bond import stochastic_rate_bond
 
 face_value = 1000.0
 rate = 0.05

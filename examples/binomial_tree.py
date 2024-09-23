@@ -1,5 +1,5 @@
 import torch
-from quantorch.core.asset_pricing.option_pricing.binomial_tree import binomial_tree
+from torchquant.core.asset_pricing.option_pricing.binomial_tree import binomial_tree
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)

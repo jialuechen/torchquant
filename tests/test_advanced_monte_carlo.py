@@ -1,5 +1,5 @@
 import torch
-from quantorch.models.monte_carlo import MonteCarlo
+from torchquant.models.monte_carlo import MonteCarlo
 
 def test_advanced_monte_carlo():
     spot = torch.tensor(100.0)

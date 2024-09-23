@@ -1,5 +1,5 @@
 import torch
-from quantorch.models.stochastic_volatility.heston_model import HestonModel
+from torchquant.models.stochastic_volatility.heston_model import HestonModel
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)

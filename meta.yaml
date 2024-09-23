@@ -1,5 +1,5 @@
 package:
-  name:quantorch
+  name:torchquant
   version:1.0.1
 
 source:
@@ -16,7 +16,7 @@ requirements:
 
 test:
   imports:
-    - quantorch
+    - torchquant
 
 about:
   home:

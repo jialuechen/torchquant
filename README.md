@@ -1,21 +1,21 @@
 <div align=center>
-<img src="assets/img/quantorch_logo.png" width="40%" loc>
+<img src="assets/img/torchquant_logo.png" width="40%" loc>
 </div>
 
 <div align=center>
   
-# QuanTorch : High-Performance Differentiable PyTorch Library for Derivatives Pricing
+# TorchQuant : High-Performance Differentiable PyTorch Library for Derivatives Pricing
 
-[![PyPI - Version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/quantorch/)
-[![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/quantorch/)
-![PyPI downloads](https://img.shields.io/pypi/dm/quantorch)
-[![Documentation Status](https://readthedocs.org/projects/quantorch/badge/?version=latest)](https://quantorch.readthedocs.io/en/latest/?badge=latest)
+[![PyPI - Version](https://img.shields.io/pypi/v/torchquant)](https://pypi.org/project/torchquant/)
+[![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/torchquant/)
+![PyPI downloads](https://img.shields.io/pypi/dm/torchquant)
+[![Documentation Status](https://readthedocs.org/projects/torchquant/badge/?version=latest)](https://torchquant.readthedocs.io/en/latest/?badge=latest)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Coverage Status](https://coveralls.io/repos/github/jialuechen/quantorch/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/quantorch?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchquant/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchquant?branch=main)
 
 </div>
 
-QuanTorch is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
+TorchQuant is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
 differentiable pricing framework with high-accuracy of numerical methods. It provides comprehensive tools for asset pricing, risk management, and model calibration.
 
 ## Advantages
@@ -48,10 +48,10 @@ differentiable pricing framework with high-accuracy of numerical methods. It pro
 
 ## Installation
 
-You can install QuanTorch via pip:
+You can install TorchQuant via pip:
 
 ```bash
-pip install -U quantorch
+pip install -U torchquant
 ```
 
 ## Usage (check out the examples folder for more information)
@@ -62,7 +62,7 @@ pip install -U quantorch
 
 ```python
 import torch
-from quantorch.core.asset_pricing.option_pricing.american_option import american_option
+from torchquant.core.asset_pricing.option_pricing.american_option import american_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
@@ -79,7 +79,7 @@ print(f'American Option Price: {price.item()}')
 
 ```python
 import torch
-from quantorch.core.asset_pricing.option_pricing.bermudan_option import bermudan_option
+from torchquant.core.asset_pricing.option_pricing.bermudan_option import bermudan_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
@@ -97,7 +97,7 @@ print(f'Bermudan Option Price: {price.item()}')
 
 ```python
 import torch
-from quantorch.core.asset_pricing.option_pricing.asian_option import asian_option
+from torchquant.core.asset_pricing.option_pricing.asian_option import asian_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
@@ -114,7 +114,7 @@ print(f'Asian Option Price: {price.item()}')
 
 ```python
 import torch
-from quantorch.risk_management.greeks.malliavin import malliavin_greek
+from torchquant.risk_management.greeks.malliavin import malliavin_greek
 
 option_price = torch.tensor(10.0)
 underlying_price = torch.tensor(100.0)
@@ -131,7 +131,7 @@ print(f'Malliavin Greek: {greek.item()}')
 
 ```python
 import torch
-from quantorch.calibration.heston_calibration import calibrate_heston
+from torchquant.calibration.heston_calibration import calibrate_heston
 
 market_prices = torch.tensor([10.0, 12.0, 14.0, 16.0])
 strikes = torch.tensor([100.0, 105.0, 110.0, 115.0])
@@ -145,7 +145,7 @@ print(f'Calibrated Heston Parameters: {params}')
 
 ## Seq2Seq PDE Solver
 ```python
-from quantorch.utils import Seq2SeqPDESolver
+from torchquant.utils import Seq2SeqPDESolver
 # Define model parameters
 input_dim = 1      # Adjust based on your input features
 hidden_dim = 64    # Number of features in the hidden state
@@ -173,8 +173,8 @@ for epoch in range(num_epochs):
 ## Credit Risk Management Example
 ```python
 import torch
-from quantorch.risk_management.credit_risk.structural_model import merton_model
-from quantorch.risk_management.credit_risk.reduced_form_model import reduced_form_model
+from torchquant.risk_management.credit_risk.structural_model import merton_model
+from torchquant.risk_management.credit_risk.reduced_form_model import reduced_form_model
 
 asset_value = torch.tensor(100.0)
 debt = torch.tensor(80.0)
@@ -208,11 +208,11 @@ print(f'Expected Loss (Reduced Form Model): {expected_loss.item()}')
 
 ## Development
 
-To contribute to QuanTorch, clone the repository and install the required dependencies:
+To contribute to TorchQuant, clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/jialuechen/quantorch.git
-cd quantorch
+git clone https://github.com/jialuechen/torchquant.git
+cd torchquant
 pip install -r requirements.txt
 ```
 

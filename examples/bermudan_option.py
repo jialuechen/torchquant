@@ -1,5 +1,5 @@
 import torch
-from quantorch.core.asset_pricing.option_pricing.bermudan_option import bermudan_option
+from torchquant.core.asset_pricing.option_pricing.bermudan_option import bermudan_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)

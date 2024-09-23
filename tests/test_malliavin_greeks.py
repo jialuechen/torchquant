@@ -1,5 +1,5 @@
 import torch
-from quantorch.risk_management.greeks.malliavin import malliavin_greek
+from torchquant.risk_management.greeks.malliavin import malliavin_greek
 
 def test_malliavin_greek():
     option_price = torch.tensor(10.0)

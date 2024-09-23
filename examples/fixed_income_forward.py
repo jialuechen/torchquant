@@ -1,5 +1,5 @@
 import torch
-from quantorch.core.asset_pricing.fixed_income_forward import fixed_income_forward
+from torchquant.core.asset_pricing.fixed_income_forward import fixed_income_forward
 
 face_value = torch.tensor(1000.0)
 rate = torch.tensor(0.05)

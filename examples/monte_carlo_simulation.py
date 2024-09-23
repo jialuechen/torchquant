@@ -1,5 +1,5 @@
 import torch
-from quantorch.models.monte_carlo import MonteCarlo
+from torchquant.models.monte_carlo import MonteCarlo
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)

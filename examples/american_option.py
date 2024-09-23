@@ -1,5 +1,5 @@
 import torch
-from quantorch.core.asset_pricing.option_pricing.american_option import american_option
+from torchquant.core.asset_pricing.option_pricing.american_option import american_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)

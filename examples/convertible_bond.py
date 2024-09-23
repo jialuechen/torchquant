@@ -1,5 +1,5 @@
 import torch
-from quantorch.core.asset_pricing.bond_pricing.convertible_bond import convertible_bond
+from torchquant.core.asset_pricing.bond_pricing.convertible_bond import convertible_bond
 
 face_value = 1000.0
 coupon_rate = 0.06

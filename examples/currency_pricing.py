@@ -1,5 +1,5 @@
 import torch
-from quantorch.core.asset_pricing.currency_pricing import currency_price
+from torchquant.core.asset_pricing.currency_pricing import currency_price
 
 domestic_rate = torch.tensor(0.05)
 foreign_rate = torch.tensor(0.03)

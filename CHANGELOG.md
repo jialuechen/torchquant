@@ -6,7 +6,7 @@
 
 ## [1.0.0] - 2024-07-20
 ### Added
-- Initial release of QuanTorch.
+- Initial release of TorchQuant.
 - Core modules for asset pricing, risk management, and model calibration.
 - Support for various option pricing models including Black-Scholes-Merton, binomial tree, and Monte Carlo simulations.
 - Bond pricing models including zero-coupon, coupon, callable, putable, and convertible bonds.
