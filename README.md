@@ -6,7 +6,7 @@
   
 # TorchQuant : High-Performance Differentiable PyTorch Library for Derivatives Pricing
 
-[![PyPI - Version](https://img.shields.io/pypi/v/torchquant)](https://pypi.org/project/torchquant/)
+[![PyPI - Version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/quantorch/)
 [![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/torchquant/)
 ![PyPI downloads](https://img.shields.io/pypi/dm/quantorch)
 [![Documentation Status](https://readthedocs.org/projects/torchquant/badge/?version=latest)](https://torchquant.readthedocs.io/en/latest/?badge=latest)
