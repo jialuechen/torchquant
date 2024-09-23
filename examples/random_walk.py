@@ -1,5 +1,5 @@
 import torch
-from torchquant.utils.math_tools import random_walk
+from torchderiv.utils.math_tools import random_walk
 
 spot = torch.tensor(100.0)
 expiry = torch.tensor(1.0)

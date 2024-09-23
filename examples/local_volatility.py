@@ -1,5 +1,5 @@
 import torch
-from torchquant.models.local_volatility.dupire_local_volatility import DupireLocalVolatility
+from torchderiv.models.local_volatility.dupire_local_volatility import DupireLocalVolatility
 
 spots = torch.linspace(80, 120, 10)
 strikes = torch.linspace(80, 120, 10)

@@ -1,5 +1,5 @@
-# quantorch is now torchquant
+# quantorch is now torchderiv
 
-This package has been renamed. Use `pip install torchquant` instead.
+This package has been renamed. Use `pip install torchderiv` instead.
 
-New package: https://pypi.org/project/torchquant/
+New package: https://pypi.org/project/torchderiv/

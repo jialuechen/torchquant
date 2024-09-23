@@ -1,5 +1,5 @@
 import torch
-from torchquant.models.interest_rate.vasicek_model import VasicekModel
+from torchderiv.models.interest_rate.vasicek_model import VasicekModel
 
 def test_vasicek_model():
     spot_rate = torch.tensor(0.03)

@@ -1,5 +1,5 @@
 package:
-  name:torchquant
+  name:torchderiv
   version:1.1.0
 
 source:
@@ -16,7 +16,7 @@ requirements:
 
 test:
   imports:
-    - torchquant
+    - torchderiv
 
 about:
   home:

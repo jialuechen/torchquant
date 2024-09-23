@@ -14,10 +14,10 @@ def get_long_description():
 
 setup(
     name="quantorch",
-    description="quantorch is now torchquant",
+    description="quantorch is now torchderiv",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     version=VERSION,
-    install_requires=["torchquant"],
+    install_requires=["torchderiv"],
     classifiers=["Development Status :: 7 - Inactive"],
 )

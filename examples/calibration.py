@@ -1,5 +1,5 @@
 import torch
-from torchquant.calibration.heston_calibration import calibrate_heston
+from torchderiv.calibration.heston_calibration import calibrate_heston
 
 market_prices = torch.tensor([10.0, 12.0, 14.0, 16.0])
 strikes = torch.tensor([100.0, 105.0, 110.0, 115.0])

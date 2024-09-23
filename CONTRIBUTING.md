@@ -1,4 +1,4 @@
-# Contributing to TorchQuant
+# Contributing to TorchDeriv
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
@@ -27,9 +27,9 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 
 In short, when you submit code changes, your submissions are understood to be under the same [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## Report bugs using Github's [issues](https://github.com/jialuechen/torchquant/issues)
+## Report bugs using Github's [issues](https://github.com/jialuechen/torchderiv/issues)
 
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/jialuechen/torchquant/issues/new); it's that easy!
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/jialuechen/torchderiv/issues/new); it's that easy!
 
 ## Write bug reports with detail, background, and sample code
 
@@ -60,7 +60,7 @@ This document was adapted from the open-source contribution guidelines for [Face
 
 ## Getting Started
 
-For more detailed information on how to contribute to torchquant, please follow these steps:
+For more detailed information on how to contribute to torchderiv, please follow these steps:
 
 1. Ensure you have Python 3.7+ installed on your system.
 2. Install the required dependencies:
@@ -80,10 +80,10 @@ For more detailed information on how to contribute to torchquant, please follow 
 6. Ensure all tests pass and your code adheres to our coding style.
 7. Submit a pull request with a clear description of your changes.
 
-Thank you for your interest in improving torchquant!
+Thank you for your interest in improving torchderiv!
 ```
 
-This CONTRIBUTING.md file provides guidelines for contributing to the torchquant project. It covers:
+This CONTRIBUTING.md file provides guidelines for contributing to the torchderiv project. It covers:
 
 1. Different ways to contribute
 2. The development process using Github Flow

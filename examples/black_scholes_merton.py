@@ -1,5 +1,5 @@
 import torch
-from torchquant.core.asset_pricing.option_pricing.black_scholes_merton import black_scholes_merton
+from torchderiv.core.asset_pricing.option_pricing.black_scholes_merton import black_scholes_merton
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)

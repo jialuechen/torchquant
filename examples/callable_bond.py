@@ -1,5 +1,5 @@
 import torch
-from torchquant.core.asset_pricing.bond_pricing.callable_bond import callable_bond
+from torchderiv.core.asset_pricing.bond_pricing.callable_bond import callable_bond
 
 face_value = 1000.0
 coupon_rate = 0.06

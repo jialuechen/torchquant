@@ -1,5 +1,5 @@
 import torch
-from torchquant.risk_management.greeks.malliavin import malliavin_greek
+from torchderiv.risk_management.greeks.malliavin import malliavin_greek
 
 option_price = torch.tensor(10.0)
 underlying_price = torch.tensor(100.0)

@@ -1,5 +1,5 @@
 import torch
-from torchquant.models.yield_curve.yield_curve_construction import bootstrap_yield_curve, nelson_siegel_yield_curve
+from torchderiv.models.yield_curve.yield_curve_construction import bootstrap_yield_curve, nelson_siegel_yield_curve
 
 cash_flows = torch.tensor([1.0, 1.1, 1.2, 1.3, 1.4])
 prices = torch.tensor([0.95, 0.96, 0.97, 0.98, 0.99])
