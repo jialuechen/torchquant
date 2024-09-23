@@ -4,7 +4,7 @@
 
 <div align=center>
   
-# TorchDeriv : High-Performance Differentiable PyTorch Library for Derivatives Pricing
+# TorchDeriv : High-Performance PyTorch Library for Derivatives Pricing
 
 [![PyPI - Version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/quantorch/)
 [![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/torchderiv/)
