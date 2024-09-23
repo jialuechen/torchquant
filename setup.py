@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="torchquant",
-    version="1.0.1",
+    version="1.1.0",
     description="High-Performance Torch Library for Derivatives Pricing",
     author="Jialue Chen",
     author_email="jialuechen@outlook.com",

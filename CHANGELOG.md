@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.0] - 2024-09-11
+## [1.1.0] - 2024-09-22
 ### Added
 - Seq2Seq ODE and PDE solvers
 
