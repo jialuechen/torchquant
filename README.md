@@ -8,7 +8,7 @@
 
 [![PyPI - Version](https://img.shields.io/pypi/v/torchquant)](https://pypi.org/project/torchquant/)
 [![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/torchquant/)
-![PyPI downloads](https://img.shields.io/pypi/dm/torchquant)
+![PyPI downloads](https://img.shields.io/pypi/dm/quantorch)
 [![Documentation Status](https://readthedocs.org/projects/torchquant/badge/?version=latest)](https://torchquant.readthedocs.io/en/latest/?badge=latest)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchquant/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchquant?branch=main)
