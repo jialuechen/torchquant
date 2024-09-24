@@ -1,6 +1,6 @@
 import torch
-from torchderiv.risk_management.market_risk.var import calculate_var
-from torchderiv.risk_management.market_risk.expected_shortfall import calculate_es
+from torchderiv.risk.market_risk.var import calculate_var
+from torchderiv.risk.market_risk.expected_shortfall import calculate_es
 
 returns = torch.tensor([0.01, -0.02, 0.03, -0.01, 0.04, -0.03])
 confidence_level = 0.95

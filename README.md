@@ -1,14 +1,14 @@
 <div align=center>
-<img src="assets/img/torchderiv_logo.png" width="40%" loc>
+<img src="assets/img/torchderiv.png" width="40%" loc>
 </div>
 
 <div align=center>
   
-# TorchDeriv : High-Performance PyTorch Library for Derivatives Pricing
+# TorchDeriv : High-Performance PyTorch Library for Derivatives Modeling and Pricing
 
-[![PyPI - Version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/quantorch/)
+[![PyPI - Version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/torchderiv/)
 [![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/torchderiv/)
-![PyPI downloads](https://img.shields.io/pypi/dm/quantorch)
+![PyPI downloads](https://img.shields.io/pypi/dm/torchderiv)
 [![Documentation Status](https://readthedocs.org/projects/torchderiv/badge/?version=latest)](https://torchderiv.readthedocs.io/en/latest/?badge=latest)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchderiv/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchderiv?branch=main)
@@ -21,6 +21,7 @@ differentiable pricing framework with high-accuracy of numerical methods. It pro
 ## Advantages
 - fast and accurate implementation of erf function (hence the normal distribution too), which is actually two orders of magnitude faster than its equivalent in scipy.stats
 - overcome the drawbacks of finite difference method in quant finance, such as the need for re-valuation computation and approximation errors
+- enable optional hardware acceleration
 
 ## Features
 
@@ -114,7 +115,7 @@ print(f'Asian Option Price: {price.item()}')
 
 ```python
 import torch
-from torchderiv.risk_management.greeks.malliavin import malliavin_greek
+from torchderiv.risk.greeks.malliavin import malliavin_greek
 
 option_price = torch.tensor(10.0)
 underlying_price = torch.tensor(100.0)
@@ -173,8 +174,8 @@ for epoch in range(num_epochs):
 ## Credit Risk Management Example
 ```python
 import torch
-from torchderiv.risk_management.credit_risk.structural_model import merton_model
-from torchderiv.risk_management.credit_risk.reduced_form_model import reduced_form_model
+from torchderiv.risk.credit_risk.structural_model import merton_model
+from torchderiv.risk.credit_risk.reduced_form_model import reduced_form_model
 
 asset_value = torch.tensor(100.0)
 debt = torch.tensor(80.0)
