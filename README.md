@@ -15,7 +15,7 @@
 
 </div>
 
-TorchQuantlib is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
+TorchQuant is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
 differentiable pricing framework with high-accuracy of numerical methods. It provides comprehensive tools for asset pricing, risk management, and model calibration.
 
 ## Advantages
