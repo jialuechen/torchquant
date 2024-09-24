@@ -1,5 +1,5 @@
 import torch
-from torchderiv.models.monte_carlo import MonteCarlo
+from torchquantlib.models.monte_carlo import MonteCarlo
 
 def test_monte_carlo():
     spot = torch.tensor(100.0)

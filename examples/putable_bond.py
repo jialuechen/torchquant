@@ -1,5 +1,5 @@
 import torch
-from torchderiv.core.asset_pricing.bond_pricing.putable_bond import putable_bond
+from torchquantlib.core.asset_pricing.bond_pricing.putable_bond import putable_bond
 
 face_value = 1000.0
 coupon_rate = 0.06

@@ -1,21 +1,21 @@
 <div align=center>
-<img src="assets/img/torchderiv.png" width="40%" loc>
+<img src="assets/img/torchquantlib.png" width="40%" loc>
 </div>
 
 <div align=center>
   
-# TorchDeriv : High-Performance PyTorch Library for Derivatives Modeling and Pricing
+# TorchQuant : High-Performance PyTorch Library for Derivatives Modeling and Pricing
 
-[![PyPI - Version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/torchderiv/)
-[![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/torchderiv/)
-![PyPI downloads](https://img.shields.io/pypi/dm/torchderiv)
-[![Documentation Status](https://readthedocs.org/projects/torchderiv/badge/?version=latest)](https://torchderiv.readthedocs.io/en/latest/?badge=latest)
+[![PyPI - Version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/torchquantlib/)
+[![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/torchquantlib/)
+![PyPI downloads](https://img.shields.io/pypi/dm/torchquantlib)
+[![Documentation Status](https://readthedocs.org/projects/torchquantlib/badge/?version=latest)](https://torchquantlib.readthedocs.io/en/latest/?badge=latest)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchderiv/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchderiv?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchquantlib/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchquantlib?branch=main)
 
 </div>
 
-TorchDeriv is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
+TorchQuantlib is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
 differentiable pricing framework with high-accuracy of numerical methods. It provides comprehensive tools for asset pricing, risk management, and model calibration.
 
 ## Advantages
@@ -49,10 +49,10 @@ differentiable pricing framework with high-accuracy of numerical methods. It pro
 
 ## Installation
 
-You can install TorchDeriv via pip:
+You can install TorchQuantlib via pip:
 
 ```bash
-pip install -U torchderiv
+pip install -U torchquantlib
 ```
 
 ## Usage (check out the examples folder for more information)
@@ -63,7 +63,7 @@ pip install -U torchderiv
 
 ```python
 import torch
-from torchderiv.core.asset_pricing.option_pricing.american_option import american_option
+from torchquantlib.core.asset_pricing.option_pricing.american_option import american_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
@@ -80,7 +80,7 @@ print(f'American Option Price: {price.item()}')
 
 ```python
 import torch
-from torchderiv.core.asset_pricing.option_pricing.bermudan_option import bermudan_option
+from torchquantlib.core.asset_pricing.option_pricing.bermudan_option import bermudan_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
@@ -98,7 +98,7 @@ print(f'Bermudan Option Price: {price.item()}')
 
 ```python
 import torch
-from torchderiv.core.asset_pricing.option_pricing.asian_option import asian_option
+from torchquantlib.core.asset_pricing.option_pricing.asian_option import asian_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
@@ -115,7 +115,7 @@ print(f'Asian Option Price: {price.item()}')
 
 ```python
 import torch
-from torchderiv.risk.greeks.malliavin import malliavin_greek
+from torchquantlib.risk.greeks.malliavin import malliavin_greek
 
 option_price = torch.tensor(10.0)
 underlying_price = torch.tensor(100.0)
@@ -132,7 +132,7 @@ print(f'Malliavin Greek: {greek.item()}')
 
 ```python
 import torch
-from torchderiv.calibration.heston_calibration import calibrate_heston
+from torchquantlib.calibration.heston_calibration import calibrate_heston
 
 market_prices = torch.tensor([10.0, 12.0, 14.0, 16.0])
 strikes = torch.tensor([100.0, 105.0, 110.0, 115.0])
@@ -146,7 +146,7 @@ print(f'Calibrated Heston Parameters: {params}')
 
 ## Seq2Seq PDE Solver
 ```python
-from torchderiv.utils import Seq2SeqPDESolver
+from torchquantlib.utils import Seq2SeqPDESolver
 # Define model parameters
 input_dim = 1      # Adjust based on your input features
 hidden_dim = 64    # Number of features in the hidden state
@@ -174,8 +174,8 @@ for epoch in range(num_epochs):
 ## Credit Risk Management Example
 ```python
 import torch
-from torchderiv.risk.credit_risk.structural_model import merton_model
-from torchderiv.risk.credit_risk.reduced_form_model import reduced_form_model
+from torchquantlib.risk.credit_risk.structural_model import merton_model
+from torchquantlib.risk.credit_risk.reduced_form_model import reduced_form_model
 
 asset_value = torch.tensor(100.0)
 debt = torch.tensor(80.0)
@@ -209,11 +209,11 @@ print(f'Expected Loss (Reduced Form Model): {expected_loss.item()}')
 
 ## Development
 
-To contribute to TorchDeriv, clone the repository and install the required dependencies:
+To contribute to TorchQuantlib, clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/jialuechen/torchderiv.git
-cd torchderiv
+git clone https://github.com/jialuechen/torchquantlib.git
+cd torchquantlib
 pip install -r requirements.txt
 ```
 

@@ -1,6 +1,6 @@
 import torch
-from torchderiv.risk.credit_risk.structural_model import merton_model
-from torchderiv.risk.credit_risk.reduced_form_model import reduced_form_model
+from torchquantlib.risk.credit_risk.structural_model import merton_model
+from torchquantlib.risk.credit_risk.reduced_form_model import reduced_form_model
 
 asset_value = torch.tensor(100.0)
 debt = torch.tensor(80.0)

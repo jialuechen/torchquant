@@ -1,5 +1,5 @@
 import torch
-from torchderiv.utils.math_tools import random_walk
+from torchquantlib.utils.math_tools import random_walk
 
 def test_random_walk():
     spot = torch.tensor(100.0)

@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="torchderiv",
+    name="torchquantlib",
     version="1.1.0",
     description="High-Performance Torch Library for Derivatives Pricing",
     author="Jialue Chen",
     author_email="jialuechen@outlook.com",
-    url="https://github.com/jialuechen/torchderiv",
+    url="https://github.com/jialuechen/torchquantlib",
     packages=find_packages(),
     install_requires=[
         "torch",

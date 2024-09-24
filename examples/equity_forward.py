@@ -1,5 +1,5 @@
 import torch
-from torchderiv.core.asset_pricing.equity_forward import equity_forward
+from torchquantlib.core.asset_pricing.equity_forward import equity_forward
 
 spot = torch.tensor(100.0)
 rate = torch.tensor(0.05)
