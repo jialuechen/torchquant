@@ -1,5 +1,5 @@
 <div align=center>
-<img src="assets/img/torchquantlib.png" width="40%" loc>
+<img src="assets/img/torchquant.png" width="40%" loc>
 </div>
 
 <div align=center>
