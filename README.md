@@ -26,7 +26,7 @@ differentiable pricing framework with high-accuracy of numerical methods. It pro
 ## Features
 
 - **Asset Pricing**:
-  - Option pricing models including Black-Scholes-Merton, binomial tree, and Monte Carlo simulations.
+  - Option pricing models including BSM, binomial tree, and Monte Carlo simulations.
   - Bond pricing models including callable, putable, and convertible bonds.
   - Advanced options support for American, Bermudan, Asian, barrier and look-back options.
   - Implied volatility calculation using "Let's be rational" algorithm.
@@ -49,7 +49,7 @@ differentiable pricing framework with high-accuracy of numerical methods. It pro
 
 ## Installation
 
-You can install TorchQuantlib via pip:
+You can install torchquant via pip:
 
 ```bash
 pip install -U torchquantlib
