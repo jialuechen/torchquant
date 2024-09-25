@@ -6,7 +6,7 @@
   
 # TorchQuant : High-Performance PyTorch Library for Derivatives Modeling and Pricing
 
-[![PyPI - Version](https://img.shields.io/pypi/v/quantorch)](https://pypi.org/project/torchquantlib/)
+[![PyPI - Version](https://img.shields.io/pypi/v/torchquantlib)](https://pypi.org/project/torchquantlib/)
 [![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/torchquantlib/)
 ![PyPI downloads](https://img.shields.io/pypi/dm/pytorch)
 [![Documentation Status](https://readthedocs.org/projects/torchquantlib/badge/?version=latest)](https://torchquantlib.readthedocs.io/en/latest/?badge=latest)
@@ -26,7 +26,7 @@ differentiable pricing framework with high-accuracy of numerical methods. It pro
 ## Features
 
 - **Asset Pricing**:
-  - Option pricing models including BSM, binomial tree, and Monte Carlo simulations.
+  - Option pricing models including BSM, Heston, binomial tree, and Monte Carlo simulations.
   - Bond pricing models including callable, putable, and convertible bonds.
   - Advanced options support for American, Bermudan, Asian, barrier and look-back options.
   - Implied volatility calculation using "Let's be rational" algorithm.
