@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="torchquantlib",
     version="1.2.0",
-    description="High-Performance Torch Library for Derivatives Pricing",
+    description="High-Performance PyTorch Library for Derivatives Pricing",
     author="Jialue Chen",
     author_email="jialuechen@outlook.com",
     url="https://github.com/jialuechen/torchquantlib",

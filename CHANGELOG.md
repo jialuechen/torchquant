@@ -2,7 +2,7 @@
 
 ## [1.2.0] - 2024-09-22
 ### Added
-- Seq2Seq ODE and PDE solvers
+- Seq2Seq PDE solvers
 
 ## [1.0.0] - 2024-07-20
 ### Added
