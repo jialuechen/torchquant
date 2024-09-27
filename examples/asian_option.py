@@ -1,5 +1,5 @@
 import torch
-from torchquantlib.core.asset_pricing.option_pricing.asian_option import asian_option
+from torchquantlib.core.asset_pricing.option.asian_option import asian_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)

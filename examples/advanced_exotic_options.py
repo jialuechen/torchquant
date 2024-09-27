@@ -1,5 +1,5 @@
 import torch
-from torchquantlib.core.asset_pricing.option_pricing.advanced_exotic_options import lookback_option
+from torchquantlib.core.asset_pricing.option.advanced_exotic_options import lookback_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
