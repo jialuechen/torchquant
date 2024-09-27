@@ -1,5 +1,5 @@
 import torch
-from torchquantlib.core.asset_pricing.option_pricing.black_scholes_merton import black_scholes_merton
+from torchquantlib.core.asset_pricing.option.black_scholes_merton import black_scholes_merton
 
 def test_black_scholes_merton():
     spot = torch.tensor(100.0)
