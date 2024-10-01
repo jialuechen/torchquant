@@ -1,5 +1,5 @@
 import torch
-from torchquantlib.risk.greeks.malliavin import malliavin_greek
+from torchquantlib.risk.greeks.malliavin_greeks import MalliavinGreeks
 
 def test_malliavin_greek():
     option_price = torch.tensor(10.0)
@@ -7,5 +7,5 @@ def test_malliavin_greek():
     volatility = torch.tensor(0.2)
     expiry = torch.tensor(1.0)
 
-    greek = malliavin_greek(option_price, underlying_price, volatility, expiry)
+    greek = MalliavinGreeks(option_price, underlying_price, volatility, expiry)
     assert torch.isclose(greek, torch.tensor(2.0), atol=1e-1)
