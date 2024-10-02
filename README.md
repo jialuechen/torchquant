@@ -6,6 +6,15 @@
   
 # TorchQuant : High-Performance PyTorch Library for Derivatives Modeling and Pricing
 
+[![PyPI - Version](https://img.shields.io/pypi/v/torchquantlib)](https://pypi.org/project/torchquantlib/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.4.0-blue)](https://pytorch.org)
+[![Python Versions](https://img.shields.io/badge/python-3.6%2B-green)](https://pypi.org/project/torchquantlib/)
+![PyPI downloads](https://img.shields.io/pypi/dm/pytorch)
+[![Documentation Status](https://readthedocs.org/projects/torchquantlib/badge/?version=latest)](https://torchquantlib.readthedocs.io/en/latest/?badge=latest)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchquantlib/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchquantlib?branch=main)
+
+
 </div>
 
 TorchQuant is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
