@@ -116,7 +116,7 @@ print(f'Asian Option Price: {price.item()}')
 
 ```python
 import torch
-from torchquantlib.risk.greeks.malliavin import malliavin_greek
+from torchquantlib.core.risk.greeks.malliavin import malliavin_greek
 
 option_price = torch.tensor(10.0)
 underlying_price = torch.tensor(100.0)
@@ -175,8 +175,8 @@ for epoch in range(num_epochs):
 ## Credit Risk Management Example
 ```python
 import torch
-from torchquantlib.risk.credit_risk.structural_model import merton_model
-from torchquantlib.risk.credit_risk.reduced_form_model import reduced_form_model
+from torchquantlib.core.risk.credit_risk.structural_model import merton_model
+from torchquantlib.core.risk.credit_risk.reduced_form_model import reduced_form_model
 
 asset_value = torch.tensor(100.0)
 debt = torch.tensor(80.0)
