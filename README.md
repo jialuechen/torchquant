@@ -2,11 +2,6 @@
 <img src="assets/torchquant.png" width="40%" loc>
 </div>
 
-<div align=center>
-  
-## TorchQuant : High-Performance PyTorch Library for Derivatives Modeling and Pricing
-
-</div>
 
 TorchQuant is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
 differentiable pricing framework with high-accuracy of numerical methods. It provides comprehensive tools for asset pricing, risk management, and model calibration.
