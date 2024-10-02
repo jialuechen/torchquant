@@ -1,5 +1,5 @@
 <div align=center>
-<img src="assets/img/torchquant.png" width="40%" loc>
+<img src="assets/torchquant.png" width="40%" loc>
 </div>
 
 <div align=center>
@@ -13,6 +13,7 @@
 [![Documentation Status](https://readthedocs.org/projects/torchquantlib/badge/?version=latest)](https://torchquantlib.readthedocs.io/en/latest/?badge=latest)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchquantlib/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchquantlib?branch=main)
+
 
 </div>
 
