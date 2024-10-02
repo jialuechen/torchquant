@@ -1,8 +1,8 @@
 import torch
-from torchquantlib.risk.valuation_adjustments.cva import calculate_cva
-from torchquantlib.risk.valuation_adjustments.dva import calculate_dva
-from torchquantlib.risk.valuation_adjustments.mva import calculate_mva
-from torchquantlib.risk.valuation_adjustments.fva import calculate_fva
+from torchquantlib.core.risk.valuation_adjustments.cva import calculate_cva
+from torchquantlib.core.risk.valuation_adjustments.dva import calculate_dva
+from torchquantlib.core.risk.valuation_adjustments.mva import calculate_mva
+from torchquantlib.core.risk.valuation_adjustments.fva import calculate_fva
 
 exposure = torch.tensor(100.0)
 default_prob = torch.tensor(0.02)

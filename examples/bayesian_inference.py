@@ -1,4 +1,5 @@
 import torch
+from torch import Tensor
 
 def bayesian_update(prior: Tensor, likelihood: Tensor) -> Tensor:
     posterior = prior * likelihood
