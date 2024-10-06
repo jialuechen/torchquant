@@ -1,7 +1,7 @@
 import torch
 from torch import Tensor
-from torchquantlib.models.stochastic_volatility import sabr
 from scipy.optimize import minimize
+from torchquantlib.models.stochastic_volatility import sabr
 
 def sabr_loss(params, market_vols, strikes, expiries):
     alpha, beta, rho, nu = params
