@@ -2,12 +2,6 @@ import torch
 from torch import Tensor
 import math
 from scipy.stats import norm
-
-def normal_cdf(x):
-    return norm.cdf(x)
-
-def normal_pdf(x):
-    return norm.pdf(x)
     
 def barrier_option(option_type: str, barrier_type: str, spot: Tensor, strike: Tensor, barrier: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, steps: int) -> Tensor:
     dt = expiry / steps
@@ -67,8 +61,8 @@ def chooser_option(spot, strike, expiry, volatility, rate, dividend):
     d1 = (math.log(spot / strike) + (rate - dividend + 0.5 * volatility ** 2) * expiry) / (volatility * math.sqrt(expiry))
     d2 = d1 - volatility * math.sqrt(expiry)
 
-    call_price = spot * math.exp(-dividend * expiry) * normal_cdf(d1) - strike * math.exp(-rate * expiry) * normal_cdf(d2)
-    put_price = strike * math.exp(-rate * expiry) * normal_cdf(-d2) - spot * math.exp(-dividend * expiry) * normal_cdf(-d1)
+    call_price = spot * math.exp(-dividend * expiry) * norm.cdf(d1) - strike * math.exp(-rate * expiry) * norm.cdf(d2)
+    put_price = strike * math.exp(-rate * expiry) * norm.cdf(-d2) - spot * math.exp(-dividend * expiry) * norm.cdf(-d1)
     
     return torch.tensor(call_price + put_price)
 
@@ -103,7 +97,7 @@ def compound_option(spot, strike1, strike2, expiry1, expiry2, volatility, rate, 
     d3 = (math.log(spot / strike2) + (rate - dividend + 0.5 * volatility ** 2) * expiry2) / (volatility * math.sqrt(expiry2))
     d4 = d3 - volatility * math.sqrt(expiry2)
 
-    price = math.exp(-rate * expiry2) * (spot * math.exp((rate - dividend) * expiry2) * normal_cdf(d3) - strike1 * normal_cdf(d4))
+    price = math.exp(-rate * expiry2) * (spot * math.exp((rate - dividend) * expiry2) * norm.cdf(d3) - strike1 * norm.cdf(d4))
     
     return torch.tensor(price)
 
@@ -132,8 +126,8 @@ def shout_option(spot, strike, expiry, volatility, rate, dividend):
     d1 = (math.log(spot / strike) + (rate - dividend + 0.5 * volatility ** 2) * expiry) / (volatility * math.sqrt(expiry))
     d2 = d1 - volatility * math.sqrt(expiry)
 
-    call_price = spot * math.exp(-dividend * expiry) * normal_cdf(d1) - strike * math.exp(-rate * expiry) * normal_cdf(d2)
-    shout_value = spot * math.exp(-dividend * expiry) * (1 - normal_cdf(d1))
+    call_price = spot * math.exp(-dividend * expiry) * norm.cdf(d1) - strike * math.exp(-rate * expiry) * norm.cdf(d2)
+    shout_value = spot * math.exp(-dividend * expiry) * (1 - norm.cdf(d1))
 
     return torch.tensor(call_price + shout_value)
 
