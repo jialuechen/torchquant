@@ -1,6 +1,7 @@
 import torch
 from torch import Tensor
 
+
 def bermudan_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, steps: int, exercise_dates: Tensor) -> Tensor:
     dt = expiry / steps
     u = torch.exp(volatility * torch.sqrt(dt))

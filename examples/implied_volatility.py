@@ -1,5 +1,5 @@
 import torch
-from torchquantlib.core.asset_pricing.implied_volatility import implied_volatility
+from torchquantlib.core.asset_pricing.letsberational import implied_volatility
 
 market_price = torch.tensor(10.0)
 spot = torch.tensor(100.0)

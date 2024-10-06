@@ -1,6 +1,7 @@
 import torch
 from torch import Tensor
 
+# arithmetic average asian options
 def asian_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, steps: int) -> Tensor:
     dt = expiry / steps
     u = torch.exp(volatility * torch.sqrt(dt))

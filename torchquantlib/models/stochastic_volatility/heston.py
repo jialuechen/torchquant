@@ -1,7 +1,7 @@
 import torch
 from torch import Tensor
 
-class HestonModel:
+class Heston:
     def __init__(self, spot: Tensor, strike: Tensor, expiry: Tensor, rate: Tensor, kappa: Tensor, theta: Tensor, sigma: Tensor, rho: Tensor, v0: Tensor):
         self.spot = spot
         self.strike = strike
