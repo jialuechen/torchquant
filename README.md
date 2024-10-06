@@ -128,22 +128,63 @@ greek = malliavin_greek(option_price, underlying_price, volatility, expiry)
 print(f'Malliavin Greek: {greek.item()}')
 ```
 
-### Model Calibration
+### Model Calibration by Optimal Transport
 
 #### Heston Model Calibration
 
 ```python
+# calibrate_heston.py
+
+import numpy as np
 import torch
-from torchquantlib.calibration.heston_calibration import calibrate_heston
+from torchquantlib.calibration import model_calibrator
+from torchquantlib.models.stochastic_volatility.heston import Heston
 
-market_prices = torch.tensor([10.0, 12.0, 14.0, 16.0])
-strikes = torch.tensor([100.0, 105.0, 110.0, 115.0])
-expiries = torch.tensor([1.0, 1.0, 1.0, 1.0])
-spot = torch.tensor(100.0)
-rate = torch.tensor(0.05)
+# Generate synthetic observed data using true Heston parameters
+N_observed = 1000
+S0 = 100.0
+T = 1.0
+true_params = {
+    'kappa': 2.0,
+    'theta': 0.04,
+    'sigma_v': 0.3,
+    'rho': -0.7,
+    'v0': 0.04,
+    'mu': 0.05
+}
 
-params = calibrate_heston(market_prices, strikes, expiries, spot, rate)
-print(f'Calibrated Heston Parameters: {params}')
+np.random.seed(42)
+torch.manual_seed(42)
+heston_true = Heston(**true_params)
+S_observed = heston_true.simulate(S0=S0, T=T, N=N_observed)
+
+# Initialize the Heston model with initial guesses
+heston_model = Heston(
+    kappa_init=1.0,
+    theta_init=0.02,
+    sigma_v_init=0.2,
+    rho_init=-0.5,
+    v0_init=0.02,
+    mu_init=0.0
+)
+
+# Set up the calibrator
+calibrator = model_calibrator(
+    model=heston_model,
+    observed_data=S_observed.detach().cpu().numpy(),  # Convert tensor to numpy array
+    S0=S0,
+    T=T,
+    lr=0.01
+)
+
+# Calibrate the model
+calibrator.calibrate(num_epochs=1000, steps=100, verbose=True)
+
+# Get the calibrated parameters
+calibrated_params = calibrator.get_calibrated_params()
+print("Calibrated Parameters:")
+for name, value in calibrated_params.items():
+    print(f"{name}: {value:.6f}")
 ```
 
 ## Seq2Seq PDE Solver
