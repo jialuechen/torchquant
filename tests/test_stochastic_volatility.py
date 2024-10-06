@@ -1,5 +1,5 @@
 import torch
-from torchquantlib.models.stochastic_volatility.heston_model import HestonModel
+from torchquantlib.models.stochastic_volatility.heston import HestonModel
 
 def test_heston_model():
     spot = torch.tensor(100.0)
