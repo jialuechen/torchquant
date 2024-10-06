@@ -1,5 +1,5 @@
 import torch
-from torchquantlib.models.interest_rate.vasicek_model import VasicekModel
+from torchquantlib.models.interest_rate.vasicek import VasicekModel
 
 spot_rate = torch.tensor(0.03)
 kappa = torch.tensor(0.5)

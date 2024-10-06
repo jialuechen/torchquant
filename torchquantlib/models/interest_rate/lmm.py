@@ -1,7 +1,7 @@
 import torch
 from torch import Tensor
 
-class LMMModel:
+class LMM:
     def __init__(self, forward_rates: Tensor, volatilities: Tensor, times: Tensor):
         self.forward_rates = forward_rates
         self.volatilities = volatilities
