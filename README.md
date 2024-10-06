@@ -20,11 +20,6 @@
 TorchQuant is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
 differentiable pricing framework with high-accuracy of numerical methods. It provides comprehensive tools for asset pricing, risk management, and model calibration.
 
-## Advantages
-- fast and accurate implementation of erf function (hence the normal distribution too), which is actually two orders of magnitude faster than its equivalent in scipy.stats
-- overcome the drawbacks of finite difference method in quant finance, such as the need for re-valuation computation and approximation errors
-- enable optional hardware acceleration
-
 ## Features
 
 - **Asset Pricing**:
