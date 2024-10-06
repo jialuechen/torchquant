@@ -1,7 +1,7 @@
 import torch
 from torch import Tensor
 
-class GARCHModel:
+class GARCH:
     def __init__(self, spot: Tensor, strike: Tensor, expiry: Tensor, omega: Tensor, alpha: Tensor, beta: Tensor):
         self.spot = spot
         self.strike = strike
