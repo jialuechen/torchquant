@@ -1,10 +1,11 @@
 import torch
 from torch import Tensor
 from scipy.optimize import minimize
+from torchquantlib.models.stochastic_volatility import sabr
 
 def sabr_loss(params, market_vols, strikes, expiries):
     alpha, beta, rho, nu = params
-    model = SABRModel(strikes, expiries, alpha, beta, rho, nu)
+    model = sabr(strikes, expiries, alpha, beta, rho, nu)
     model_vols = model.price_option('call')
     loss = torch.sum((market_vols - model_vols) ** 2)
     return loss

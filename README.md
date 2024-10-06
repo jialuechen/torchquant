@@ -4,7 +4,7 @@
 
 <div align=center>
   
-# TorchQuant : High-Performance PyTorch Library for Derivatives Modeling and Pricing
+# TorchQuant : High-Performance PyTorch Library for Quantitative Finance
 
 [![PyPI - Version](https://img.shields.io/pypi/v/torchquantlib)](https://pypi.org/project/torchquantlib/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.4.0-blue)](https://pytorch.org)
