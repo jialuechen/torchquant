@@ -1,5 +1,6 @@
 import torch
 from models.stochastic_model import StochasticModel
+
 class Heston(StochasticModel):
     """
     Heston stochastic volatility model.
@@ -29,7 +30,7 @@ class Heston(StochasticModel):
         N = int(N)
         steps = int(steps)
 
-        # Ensure parameters are positive and move to device
+        # Ensure parameters are positive
         theta = torch.clamp(theta, min=1e-6)
         sigma_v = torch.clamp(sigma_v, min=1e-6)
         v0 = torch.clamp(v0, min=1e-6)
@@ -55,9 +56,37 @@ class Heston(StochasticModel):
 
         return S[:, -1]
 
+    def option_price(self, S0, K, T, r, option_type='call', N=10000, steps=100):
+        """
+        Price a European option using Monte Carlo simulation under the Heston model.
+
+        Parameters:
+        - S0: Initial asset price
+        - K: Strike price
+        - T: Time to maturity
+        - r: Risk-free interest rate
+        - option_type: 'call' or 'put'
+        - N: Number of simulation paths
+        - steps: Number of time steps in simulation
+
+        Returns:
+        - Option price
+        """
+        S_T = self.simulate(S0, T, N, steps)
+        if option_type.lower() == 'call':
+            payoff = torch.relu(S_T - K)
+        elif option_type.lower() == 'put':
+            payoff = torch.relu(K - S_T)
+        else:
+            raise ValueError("option_type must be 'call' or 'put'")
+        price = torch.exp(-r * T) * torch.mean(payoff)
+        return price.item()
+
     def _apply_constraints(self):
         self.params['theta'].data.clamp_(min=1e-6)
         self.params['sigma_v'].data.clamp_(min=1e-6)
         self.params['v0'].data.clamp_(min=1e-6)
         self.params['rho'].data.clamp_(min=-0.999, max=0.999)
+
+
 

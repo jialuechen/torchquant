@@ -48,6 +48,31 @@ class SABR(StochasticModel):
 
         return F[:, -1]
 
+    def option_price(self, K, T, r, option_type='call', N=10000, steps=100):
+        """
+        Price a European option using Monte Carlo simulation under the SABR model.
+
+        Parameters:
+        - K: Strike price
+        - T: Time to maturity
+        - r: Risk-free interest rate
+        - option_type: 'call' or 'put'
+        - N: Number of simulation paths
+        - steps: Number of time steps in simulation
+
+        Returns:
+        - Option price
+        """
+        F_T = self.simulate(S0=self.F0, T=T, N=N, steps=steps)
+        if option_type.lower() == 'call':
+            payoff = torch.relu(F_T - K)
+        elif option_type.lower() == 'put':
+            payoff = torch.relu(K - F_T)
+        else:
+            raise ValueError("option_type must be 'call' or 'put'")
+        price = torch.exp(-r * T) * torch.mean(payoff)
+        return price.item()
+
     def _apply_constraints(self):
         self.params['alpha'].data.clamp_(min=1e-6)
         self.params['beta'].data.clamp_(min=0.0, max=1.0)
