@@ -1,7 +1,7 @@
 import torch
 from torch import Tensor
 
-class VasicekModel:
+class Vasicek:
     def __init__(self, spot_rate: Tensor, kappa: Tensor, theta: Tensor, sigma: Tensor, time: Tensor):
         self.spot_rate = spot_rate
         self.kappa = kappa

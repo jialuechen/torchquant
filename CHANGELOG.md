@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.0] - 2024-09-22
+### Added
+- Optimal Transport for Model Calibration
+
 ## [1.2.0] - 2024-09-22
 ### Added
 - Seq2Seq PDE solvers

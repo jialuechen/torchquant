@@ -1,10 +1,11 @@
 import torch
 from torch import Tensor
 from scipy.optimize import minimize
+from torchquantlib.models.stochastic_volatility.heston import Heston
 
 def heston_loss(params, market_prices, strikes, expiries, spot, rate):
     kappa, theta, sigma, rho, v0 = params
-    model = HestonModel(spot, strikes, expiries, rate, kappa, theta, sigma, rho, v0)
+    model = Heston(spot, strikes, expiries, rate, kappa, theta, sigma, rho, v0)
     model_prices = model.price_option('call')
     loss = torch.sum((market_prices - model_prices) ** 2)
     return loss
