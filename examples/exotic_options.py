@@ -1,5 +1,5 @@
 import torch
-from torchquantlib.core.asset_pricing.option.exotic_options import barrier_option
+from torchquantlib.core.asset_pricing.option.exotics import barrier_option
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
