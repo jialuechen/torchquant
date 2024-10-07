@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.optim as optim
 
 class Seq2SeqPDESolver(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim, num_layers=1):
