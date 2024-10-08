@@ -9,16 +9,15 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/torchquantlib)](https://pypi.org/project/torchquantlib/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.4.0-blue)](https://pytorch.org)
 [![Python Versions](https://img.shields.io/badge/python-3.7%2B-green)](https://pypi.org/project/torchquantlib/)
-![PyPI downloads](https://img.shields.io/pypi/dm/pytorch)
-[![Documentation Status](https://readthedocs.org/projects/torchquantlib/badge/?version=latest)](https://torchquantlib.readthedocs.io/en/latest/?badge=latest)
+![PyPI downloads](https://img.shields.io/pypi/dm/torchquantlib)
+[![Documentation Status](https://readthedocs.org/projects/torchquant/badge/?version=latest)](https://torchquant.readthedocs.io/en/latest/?badge=latest)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchquantlib/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchquantlib?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchquant/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchquant?branch=main)
 
 
 </div>
 
-TorchQuant is a comprehensive derivatives pricing library built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a
-differentiable pricing framework with high-accuracy of numerical methods. It provides comprehensive tools for asset pricing, risk management, and model calibration.
+TorchQuant is a comprehensive quantitative financelibrary built on top of PyTorch's automatic differentiation and GPU/TPU/MPS acceleration. It is a differentiable pricing framework with high-accuracy of numerical methods. It provides comprehensive tools for derivatives pricing, risk management, and stochastic model calibration.
 
 ## Features
 
