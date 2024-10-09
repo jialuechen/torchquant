@@ -1,8 +1,6 @@
 torchquantlib.core.risk.credit\_risk package
 ============================================
 
-Submodules
-----------
 
 torchquantlib.core.risk.credit\_risk.reduced\_form\_model module
 ----------------------------------------------------------------
@@ -20,10 +18,3 @@ torchquantlib.core.risk.credit\_risk.structural\_model module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
-.. automodule:: torchquantlib.core.risk.credit_risk
-   :members:
-   :undoc-members:
-   :show-inheritance:

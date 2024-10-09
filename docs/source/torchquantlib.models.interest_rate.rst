@@ -1,9 +1,6 @@
 torchquantlib.models.interest\_rate package
 ===========================================
 
-Submodules
-----------
-
 torchquantlib.models.interest\_rate.black\_karasinski module
 ------------------------------------------------------------
 
@@ -44,10 +41,4 @@ torchquantlib.models.interest\_rate.vasicek module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
-.. automodule:: torchquantlib.models.interest_rate
-   :members:
-   :undoc-members:
-   :show-inheritance:

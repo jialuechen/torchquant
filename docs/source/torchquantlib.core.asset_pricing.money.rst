@@ -1,8 +1,6 @@
 torchquantlib.core.asset\_pricing.money package
 ===============================================
 
-Submodules
-----------
 
 torchquantlib.core.asset\_pricing.money.future\_pricer module
 -------------------------------------------------------------
@@ -12,10 +10,3 @@ torchquantlib.core.asset\_pricing.money.future\_pricer module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
-.. automodule:: torchquantlib.core.asset_pricing.money
-   :members:
-   :undoc-members:
-   :show-inheritance:
