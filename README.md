@@ -6,7 +6,6 @@
 ![Python versions](https://img.shields.io/badge/python-3.7%2B-green)
 ![PyTorch version](https://img.shields.io/badge/pytorch-2.4.0%2B-green)
 ![Downloads](https://img.shields.io/pypi/dm/torchquantlib)
-[![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchquant/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/torchquant?branch=main)
 [![Documentation Status](https://readthedocs.org/projects/torchquant/badge/?version=stable)](https://torchquant.readthedocs.io/en/stable/?badge=stable)
 </div>
 
@@ -45,7 +44,7 @@ TorchQuant is a comprehensive quantitative financelibrary built on top of PyTorc
 You can install torchquant via pip:
 
 ```bash
-pip install -U torchquantlib
+pip install --upgrade torchquantlib
 ```
 
 ## Usage (check out the examples folder for more information)
