@@ -1,4 +1,4 @@
-Core
+torchquantlib.core package
 ====
 
 .. automodule:: torchquantlib.core
