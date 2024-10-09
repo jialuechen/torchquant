@@ -246,7 +246,7 @@ print(f'Expected Loss (Reduced Form Model): {expected_loss.item()}')
 
 ## Development
 
-To contribute to TorchQuantlib, clone the repository and install the required dependencies:
+To contribute to TorchQuant, clone the repository and install the required dependencies:
 
 ```bash
 git clone https://github.com/jialuechen/torchquant.git
