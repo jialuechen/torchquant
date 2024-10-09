@@ -1,8 +1,6 @@
 torchquantlib.core.risk.market\_risk package
 ============================================
 
-Submodules
-----------
 
 torchquantlib.core.risk.market\_risk.expected\_shortfall module
 ---------------------------------------------------------------
@@ -36,8 +34,6 @@ torchquantlib.core.risk.market\_risk.var module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
 .. automodule:: torchquantlib.core.risk.market_risk
    :members:
