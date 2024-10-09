@@ -1,8 +1,7 @@
 torchquantlib.models package
 ============================
 
-Subpackages
------------
+
 
 .. toctree::
    :maxdepth: 4
