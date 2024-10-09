@@ -6,10 +6,20 @@ Asset Pricing
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+Subpackages
+-----------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
 
+   torchquantlib.core.asset_pricing.bond
+   torchquantlib.core.asset_pricing.money
    torchquantlib.core.asset_pricing.option
+
+Module contents
+---------------
+
+.. automodule:: torchquantlib.core.asset_pricing
+   :members:
+   :undoc-members:
+   :show-inheritance:

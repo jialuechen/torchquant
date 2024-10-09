@@ -1,16 +1,22 @@
 Core
 ====
 
+torchquantlib.core package
+==========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   torchquantlib.core.asset_pricing
+   torchquantlib.core.risk
+
+Module contents
+---------------
+
 .. automodule:: torchquantlib.core
    :members:
    :undoc-members:
    :show-inheritance:
-
-Submodules
-----------
-
-.. toctree::
-   :maxdepth: 2
-
-   torchquantlib.core.risk
-   torchquantlib.core.asset_pricing
