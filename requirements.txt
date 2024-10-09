@@ -2,4 +2,3 @@ torch
 numpy
 scipy
 geomloss
-sphinx_rtd_theme
