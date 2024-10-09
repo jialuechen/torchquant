@@ -5,7 +5,7 @@ TorchQuant can be installed using pip, the Python package installer. To install 
 
 .. code-block:: bash
 
-   pip install torchquantlib
+   pip install --upgrade torchquantlib
 
 Requirements
 ------------
