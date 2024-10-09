@@ -15,5 +15,6 @@ TorchQuant requires:
 - Python 3.7+
 - PyTorch 2.4.0+
 - NumPy
+- Pandas
 
 For GPU acceleration, ensure you have a CUDA-compatible GPU and the appropriate CUDA toolkit installed.

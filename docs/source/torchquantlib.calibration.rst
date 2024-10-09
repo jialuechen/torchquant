@@ -1,19 +1,5 @@
-torchquantlib.calibration package
-=================================
-
-Submodules
-----------
-
-torchquantlib.calibration.model\_calibrator module
---------------------------------------------------
-
-.. automodule:: torchquantlib.calibration.model_calibrator
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
+Calibration
+===========
 
 .. automodule:: torchquantlib.calibration
    :members:

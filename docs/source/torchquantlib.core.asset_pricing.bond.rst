@@ -1,8 +1,7 @@
 torchquantlib.core.asset\_pricing.bond package
 ==============================================
 
-Submodules
-----------
+
 
 torchquantlib.core.asset\_pricing.bond.bond\_pricer module
 ----------------------------------------------------------
@@ -20,10 +19,4 @@ torchquantlib.core.asset\_pricing.bond.fixed\_income\_forward module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
-.. automodule:: torchquantlib.core.asset_pricing.bond
-   :members:
-   :undoc-members:
-   :show-inheritance:
