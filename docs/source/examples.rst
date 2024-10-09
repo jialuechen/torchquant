@@ -14,7 +14,7 @@ Here's an example of calibrating a model using TorchQuant:
 
     import numpy as np
     import torch
-    from torchquantlib.calibration import model_calibrator
+    from torchquantlib.calibration.model_calibrator import ModelCalibrator
     from torchquantlib.models.stochastic_volatility.heston import Heston
 
     # Generate synthetic observed data using true Heston parameters
@@ -46,7 +46,7 @@ Here's an example of calibrating a model using TorchQuant:
     )
 
     # Set up the calibrator
-    calibrator = model_calibrator(
+    calibrator = ModelCalibrator(
         model=heston_model,
         observed_data=S_observed.detach().cpu().numpy(),  # Convert tensor to numpy array
         S0=S0,
