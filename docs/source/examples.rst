@@ -63,4 +63,30 @@ Here's an example of calibrating a model using TorchQuant:
     for name, value in calibrated_params.items():
         print(f"{name}: {value:.6f}")
 
+
+American_option Pricing
+-----------------
+
+.. code-block:: python
+
+   # calibrate_heston.py
+   import torch
+   from torchquantlib.core.asset_pricing.option.american_option import american_option
+   
+   spot = torch.tensor(100.0)
+   strike = torch.tensor(105.0)
+   expiry = torch.tensor(1.0)
+   volatility = torch.tensor(0.2)
+   rate = torch.tensor(0.05)
+   steps = 100
+   
+   price = american_option('call', spot, strike, expiry, volatility, rate, steps)
+   print(f'Option Price: {price.item()}')
+
+  
+    np.random.seed(42)
+    torch.manual_seed(42)
+    heston_true = Heston(**true_params)
+    S_observed = heston_true.simulate(S0=S0, T=T, N=N_observed)
+
 More examples covering different aspects of TorchQuant will be added in future updates.
