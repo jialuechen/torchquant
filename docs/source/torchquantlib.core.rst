@@ -4,8 +4,7 @@ Core
 torchquantlib.core package
 ==========================
 
-Subpackages
------------
+
 
 .. toctree::
    :maxdepth: 4
@@ -13,8 +12,6 @@ Subpackages
    torchquantlib.core.asset_pricing
    torchquantlib.core.risk
 
-Module contents
----------------
 
 .. automodule:: torchquantlib.core
    :members:
