@@ -1,4 +1,4 @@
-torchquantlib.core package
+Core
 ====
 
 .. automodule:: torchquantlib.core
@@ -10,9 +10,7 @@ Submodules
 ----------
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
-   torchquantlib.core.asset_pricing
    torchquantlib.core.risk
-   
-   # Add other core submodules here
+   torchquantlib.core.asset_pricing
