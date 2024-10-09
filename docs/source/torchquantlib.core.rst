@@ -1,19 +1,18 @@
-torchquantlib.core package
-==========================
+Core
+====
 
-Subpackages
------------
+.. automodule:: torchquantlib.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
 
 .. toctree::
    :maxdepth: 4
 
    torchquantlib.core.asset_pricing
    torchquantlib.core.risk
-
-Module contents
----------------
-
-.. automodule:: torchquantlib.core
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   
+   # Add other core submodules here
