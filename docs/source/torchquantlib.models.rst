@@ -11,8 +11,6 @@ torchquantlib.models package
    torchquantlib.models.stochastic_volatility
    torchquantlib.models.yield_curve
 
-Module contents
----------------
 
 .. automodule:: torchquantlib.models
    :members:
