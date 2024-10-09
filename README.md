@@ -1,5 +1,13 @@
 <div align=center>
 <img src="assets/torchquant.png" width="40%" loc>
+
+[![PyPI version](https://badge.fury.io/py/torchquantlib.svg)](https://badge.fury.io/py/torchquantlib)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![Python versions](https://img.shields.io/badge/python-3.7%2B-green)
+![PyTorch version](https://img.shields.io/badge/pytorch-2.4.0%2B-green)
+![Downloads](https://img.shields.io/pypi/dm/torchquantlib)
+[![Coverage Status](https://coveralls.io/repos/github/jialuechen/torchquant/badge.svg?branch=main)](https://coveralls.io/github/jialuechen/tfq-finance?branch=main)
+[![Documentation Status](https://readthedocs.org/projects/torchquant/badge/?version=latest)](https://torchquant.readthedocs.io/en/latest/?badge=latest)
 </div>
 
   
