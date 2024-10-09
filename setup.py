@@ -8,6 +8,9 @@ setup(
     author_email="jialuechen@outlook.com",
     url="https://github.com/jialuechen/torchquantlib",
     packages=find_packages(),
+    extras_require={
+    'docs': ['sphinx', 'sphinx_rtd_theme'],
+},
     install_requires=[
         "torch",
         "numpy",
