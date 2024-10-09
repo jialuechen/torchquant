@@ -12,7 +12,8 @@ setup(
         "torch",
         "numpy",
         "scipy",
-        "geomloss"
+        "geomloss",
+        "sphinx_rtd_theme"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
