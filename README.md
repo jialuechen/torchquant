@@ -7,7 +7,7 @@
 # TorchQuant : High-Performance PyTorch Library for Quantitative Finance
 
 [![PyPI - Version](https://img.shields.io/pypi/v/torchquantlib)](https://pypi.org/project/torchquantlib/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.4.0-blue)](https://pytorch.org)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.4.0-green)](https://pytorch.org)
 [![Python Versions](https://img.shields.io/badge/python-3.7%2B-green)](https://pypi.org/project/torchquantlib/)
 ![PyPI downloads](https://img.shields.io/pypi/dm/torchquantlib)
 [![Documentation Status](https://readthedocs.org/projects/torchquant/badge/?version=latest)](https://torchquant.readthedocs.io/en/latest/?badge=latest)
@@ -246,7 +246,7 @@ print(f'Expected Loss (Reduced Form Model): {expected_loss.item()}')
 
 ## Development
 
-To contribute to TorchQuantlib, clone the repository and install the required dependencies:
+To contribute to TorchQuant, clone the repository and install the required dependencies:
 
 ```bash
 git clone https://github.com/jialuechen/torchquant.git

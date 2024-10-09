@@ -1,30 +1,14 @@
-api_reference.rst
-===============================
 API Reference
 =============
+
+This section provides detailed documentation for the TorchQuant API.
+
 .. toctree::
    :maxdepth: 2
 
    torchquantlib.core
-   torchquantlib.models
-   torchquantlib.utils
    torchquantlib.calibration
+   torchquantlib.risk
+   torchquantlib.utils
 
-torchquantlib.core.rst (Example for one module)
-===============================
-Core
-========
-
-.. automodule:: torchquantlib.core
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Submodules
-----------
-
-.. toctree::
-   :maxdepth: 4
-
-   torchquantlib.core.asset_pricing
-   torchquantlib.core.risk
+For more information on specific modules and functions, please refer to the individual module pages.
