@@ -1,13 +1,6 @@
 ModelCalibrator
 ===============
 
-.. autoclass:: torchquantlib.calibration.model_calibrator.ModelCalibrator
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-   .. automethod:: __init__
-
 Class Description
 -----------------
 
