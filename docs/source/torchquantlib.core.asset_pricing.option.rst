@@ -1,8 +1,6 @@
 Option
 ======
 
-Submodules
-----------
 
 .. toctree::
    :maxdepth: 4
@@ -13,8 +11,6 @@ Submodules
    torchquantlib.core.asset_pricing.option.bermudan_option
    torchquantlib.code.asset_pricing.option.exotics
 
-Module contents
----------------
 
 .. automodule:: torchquantlib.core.asset_pricing.option
    :members:

@@ -1,6 +1,6 @@
 import pytest
 import torch
-from torchquantlib.core.risk.greeks.malliavin_greeks import MalliavinGreeks
+from torchquantlib.core.risk.greeks.greeks import MalliavinGreeks
 
 @pytest.fixture
 def malliavin_greeks():

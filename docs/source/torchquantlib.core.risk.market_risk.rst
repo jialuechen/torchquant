@@ -1,4 +1,4 @@
-torchquantlib.core.risk.market\_risk package
+Market Risk
 ============================================
 
 

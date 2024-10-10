@@ -12,9 +12,6 @@ This package contains various interest rate models implemented in TorchQuantLib.
    torchquantlib.models.interest_rate.lmm
    torchquantlib.models.interest_rate.vasicek
 
-Module contents
----------------
-
 .. automodule:: torchquantlib.models.interest_rate
    :members:
    :undoc-members:

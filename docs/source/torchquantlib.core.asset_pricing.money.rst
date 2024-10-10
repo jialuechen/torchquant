@@ -1,9 +1,11 @@
-torchquantlib.core.asset\_pricing.money package
+Money Market
 ===============================================
 
+.. toctree::
+   :maxdepth: 4
 
-torchquantlib.core.asset\_pricing.money.future\_pricer module
--------------------------------------------------------------
+   torchquantlib.core.asset_pricing.money.future_pricer
+
 
 .. automodule:: torchquantlib.core.asset_pricing.money.future_pricer
    :members:

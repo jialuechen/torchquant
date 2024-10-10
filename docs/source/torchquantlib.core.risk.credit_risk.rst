@@ -1,20 +1,30 @@
-torchquantlib.core.risk.credit\_risk package
-============================================
+Credit Risk
+===========
 
+This module contains implementations of credit risk models.
 
-torchquantlib.core.risk.credit\_risk.reduced\_form\_model module
-----------------------------------------------------------------
+Reduced Form Model
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   reduced_form_model
 
 .. automodule:: torchquantlib.core.risk.credit_risk.reduced_form_model
    :members:
    :undoc-members:
    :show-inheritance:
 
-torchquantlib.core.risk.credit\_risk.structural\_model module
--------------------------------------------------------------
+Structural Model
+----------------
+
+.. toctree::
+   :maxdepth: 2
+
+   structural_model
 
 .. automodule:: torchquantlib.core.risk.credit_risk.structural_model
    :members:
    :undoc-members:
    :show-inheritance:
-

@@ -1,9 +1,6 @@
 Risk
 ===============================
 
-Submodules
-----------
-
 .. toctree::
    :maxdepth: 4
 
@@ -12,8 +9,6 @@ Submodules
    torchquantlib.core.risk.valuation_adjustment
    torchquantlib.core.risk.greeks
 
-Module contents
----------------
 
 .. automodule:: torchquantlib.core.risk
    :members:

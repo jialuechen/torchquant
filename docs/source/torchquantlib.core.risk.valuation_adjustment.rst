@@ -1,8 +1,10 @@
-torchquantlib.core.risk.valuation\_adjustment package
-=====================================================
+Valuation Adjustment
+====================
 
-torchquantlib.core.risk.valuation\_adjustment.valuation\_adjustment module
---------------------------------------------------------------------------
+.. toctree::
+   :maxdepth: 2
+
+   torchquantlib.core.risk.valuation_adjustment.valuation_adjustment
 
 .. automodule:: torchquantlib.core.risk.valuation_adjustment.valuation_adjustment
    :members:
