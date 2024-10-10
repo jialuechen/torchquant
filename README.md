@@ -7,13 +7,10 @@
 ![PyTorch version](https://img.shields.io/badge/pytorch-2.4.0%2B-green)
 ![Downloads](https://img.shields.io/pypi/dm/torchquantlib)
 [![Documentation Status](https://readthedocs.org/projects/torchquant/badge/?version=stable)](https://torchquant.readthedocs.io/en/stable/?badge=stable)
+
 </div>
 
-  
-TorchQuant : High-Performance PyTorch Library for Quantitative Finance
-
-
-TorchQuant is a comprehensive quantitative financelibrary built on top of PyTorch's automatic differentiation and GPU acceleration. It is a differentiable pricing framework with high-accuracy numerical methods. It provides comprehensive tools for derivatives pricing, risk management, and stochastic model calibration.
+**TorchQuant** is a comprehensive high-performance quantitative finance library built on top of PyTorch's automatic differentiation and GPU acceleration. It is a differentiable pricing framework with high-accuracy numerical methods. It provides comprehensive tools for derivatives pricing, risk management, and stochastic model calibration.
 
 ## Features
 
