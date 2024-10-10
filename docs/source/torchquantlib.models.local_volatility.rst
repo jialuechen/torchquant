@@ -8,9 +8,6 @@ This module contains implementations of local volatility models used in quantita
 
    torchquantlib.models.local_volatility.dupire_local_volatility
 
-Dupire Local Volatility Model
------------------------------
-
 .. automodule:: torchquantlib.models.local_volatility.dupire_local_volatility
    :members:
    :undoc-members:

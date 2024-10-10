@@ -1,6 +1,6 @@
 import pytest
 import torch
-from torchquantlib.models.yield_curve.yield_curve_construction import bootstrap_yield_curve, nelson_siegel_yield_curve
+from torchquantlib.utils.yield_curve_construction import bootstrap_yield_curve, nelson_siegel_yield_curve
 
 @pytest.fixture
 def sample_cash_flows():
