@@ -1,4 +1,4 @@
-torchquantlib.models.yield\_curve package
+Yield Curve Model
 =========================================
 
 

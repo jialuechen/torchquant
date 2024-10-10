@@ -1,7 +1,7 @@
 API Reference
 =============
 
-This section provides detailed documentation for the TorchQuant API.
+This section provides detailed documentation for TorchQuant APIs.
 
 .. toctree::
    :maxdepth: 2

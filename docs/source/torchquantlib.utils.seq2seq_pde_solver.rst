@@ -1,4 +1,4 @@
-torchquantlib.utils.seq2seq_pde_solver
+seq2seq_pde_solver
 ==================
 
 .. automodule:: torchquantlib.utils.seq2seq_pde_solver
@@ -48,3 +48,13 @@ torchquantlib.utils.seq2seq_pde_solver
 
    .. note::
       Make sure to replace `YourEncoderClass` and `YourDecoderClass` with your actual encoder and decoder implementations.
+
+.. autoclass:: torchquantlib.utils.seq2seq_pde_solver.Encoder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. autoclass:: torchquantlib.utils.seq2seq_pde_solver.Decoder
+   :members:
+   :undoc-members:
+   :show-inheritance:

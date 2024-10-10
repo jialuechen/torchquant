@@ -1,10 +1,6 @@
 Core
 ====
 
-torchquantlib.core package
-==========================
-
-
 
 .. toctree::
    :maxdepth: 4

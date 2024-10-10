@@ -1,4 +1,4 @@
-torchquantlib.core.risk package
+Risk
 ===============================
 
 Submodules

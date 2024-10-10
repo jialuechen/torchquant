@@ -1,4 +1,4 @@
-torchquantlib.models package
+Models
 ============================
 
 
