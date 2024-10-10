@@ -1,17 +1,24 @@
-torchquantlib.models.stochastic\_volatility package
-===================================================
+Stochastic Volatility Models
+============================
 
+This package contains implementations of various stochastic volatility models.
 
-torchquantlib.models.stochastic\_volatility.heston module
----------------------------------------------------------
+.. toctree::
+   :maxdepth: 2
+
+   torchquantlib.models.stochastic_volatility.heston
+   torchquantlib.models.stochastic_volatility.sabr
+
+Heston Model
+------------
 
 .. automodule:: torchquantlib.models.stochastic_volatility.heston
    :members:
    :undoc-members:
    :show-inheritance:
 
-torchquantlib.models.stochastic\_volatility.sabr module
--------------------------------------------------------
+SABR Model
+----------
 
 .. automodule:: torchquantlib.models.stochastic_volatility.sabr
    :members:

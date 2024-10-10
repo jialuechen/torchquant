@@ -7,13 +7,10 @@ torchquantlib.utils package
 Submodules
 ----------
 
-torchquantlib.utils.seq2seq_pde_solver module
----------------------------------------------
+.. toctree::
+   :maxdepth: 4
 
-.. automodule:: torchquantlib.utils.seq2seq_pde_solver
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   torchquantlib.utils.seq2seq_pde_solver
 
 Module contents
 ---------------

@@ -1,42 +1,21 @@
-torchquantlib.models.interest\_rate package
-===========================================
+Interest Rate Models
+====================
 
-torchquantlib.models.interest\_rate.black\_karasinski module
-------------------------------------------------------------
+This package contains various interest rate models implemented in TorchQuantLib.
 
-.. automodule:: torchquantlib.models.interest_rate.black_karasinski
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. toctree::
+   :maxdepth: 2
 
-torchquantlib.models.interest\_rate.cir module
-----------------------------------------------
+   torchquantlib.models.interest_rate.black_karasinski
+   torchquantlib.models.interest_rate.cir
+   torchquantlib.models.interest_rate.hull_white
+   torchquantlib.models.interest_rate.lmm
+   torchquantlib.models.interest_rate.vasicek
 
-.. automodule:: torchquantlib.models.interest_rate.cir
-   :members:
-   :undoc-members:
-   :show-inheritance:
+Module contents
+---------------
 
-torchquantlib.models.interest\_rate.hull\_white module
-------------------------------------------------------
-
-.. automodule:: torchquantlib.models.interest_rate.hull_white
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-torchquantlib.models.interest\_rate.lmm module
-----------------------------------------------
-
-.. automodule:: torchquantlib.models.interest_rate.lmm
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-torchquantlib.models.interest\_rate.vasicek module
---------------------------------------------------
-
-.. automodule:: torchquantlib.models.interest_rate.vasicek
+.. automodule:: torchquantlib.models.interest_rate
    :members:
    :undoc-members:
    :show-inheritance:
