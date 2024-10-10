@@ -1,10 +1,6 @@
 Black-Scholes-Merton Model
 ==========================
 
-.. automodule:: torchquantlib.core.asset_pricing.option.black_scholes_merton
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 Overview
 --------

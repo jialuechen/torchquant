@@ -12,7 +12,6 @@ This module provides implementation for pricing futures contracts.
 .. autofunction:: torchquantlib.core.asset_pricing.money.future_pricer.future_pricer
 
 Usage Example
-^^^^^^^^^^^^^
 
 .. code-block:: python
 
