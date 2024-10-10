@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.3.1] - 2024-09-22
+## [1.3.1] - 2024-10-10
 ### Added
 - Minor adjustments
 
