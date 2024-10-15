@@ -201,7 +201,7 @@ for epoch in range(num_epochs):
     print(f'Epoch {epoch+1}/{num_epochs}, Loss: {loss.item():.4f}')
 ```
 
-## Credit Risk Management Example
+## Credit Risk Measurement
 ```python
 import torch
 from torchquantlib.core.risk.credit_risk.structural_model import merton_model
