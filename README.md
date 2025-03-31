@@ -230,10 +230,7 @@ print(f'Expected Loss (Reduced Form Model): {expected_loss.item()}')
 ## Roadmap
 
 
-### Q4 2024
-- Develop an interactive dashboard for visualizing risk metrics and option pricing.
-
-### Q3 2025
+### Q2 2025
 - Add support for more asset classes such as commodities and real estate.
 - Enhance the calibration module to support a broader range of models and optimization techniques.
 
