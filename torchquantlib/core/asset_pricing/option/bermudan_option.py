@@ -4,6 +4,7 @@ This module provides functionality for pricing Bermudan options using a binomial
 """
 import torch
 from torch import Tensor
+from .utils import calculate_binomial_tree_params, backward_induction
 
 def bermudan_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, steps: int, exercise_dates: Tensor) -> Tensor:
     """
@@ -29,35 +30,9 @@ def bermudan_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tens
         This implementation combines features of European and American options.
         It allows for early exercise, but only on specified dates.
     """
-    # Calculate parameters for the binomial model
-    dt = expiry / steps
-    u = torch.exp(volatility * torch.sqrt(dt))  # Up factor
-    d = 1 / u  # Down factor
-    p = (torch.exp(rate * dt) - d) / (u - d)  # Risk-neutral probability
-    
-    # Initialize the price tree
+    dt, u, d, p = calculate_binomial_tree_params(expiry, volatility, rate, steps)
     price_tree = torch.zeros((steps + 1, steps + 1))
     for i in range(steps + 1):
         for j in range(i + 1):
             price_tree[j, i] = spot * (u ** (i - j)) * (d ** j)
-    
-    # Initialize the option value at expiration
-    if option_type == 'call':
-        value_tree = torch.maximum(price_tree[:, steps] - strike, torch.tensor(0.0))
-    elif option_type == 'put':
-        value_tree = torch.maximum(strike - price_tree[:, steps], torch.tensor(0.0))
-    
-    # Backward induction through the tree
-    for i in range(steps - 1, -1, -1):
-        for j in range(i + 1):
-            # Calculate the expected option value
-            value_tree[j] = (p * value_tree[j] + (1 - p) * value_tree[j + 1]) * torch.exp(-rate * dt)
-            # Check for early exercise if current step is an exercise date
-            if i in exercise_dates:
-                if option_type == 'call':
-                    value_tree[j] = torch.maximum(value_tree[j], price_tree[j, i] - strike)
-                elif option_type == 'put':
-                    value_tree[j] = torch.maximum(value_tree[j], strike - price_tree[j, i])
-    
-    # The option price is the value at the root of the tree
-    return value_tree[0]
+    return backward_induction(option_type, price_tree, strike, rate, dt, p, steps, exercise_dates)

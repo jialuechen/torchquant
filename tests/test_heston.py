@@ -53,7 +53,7 @@ def test_option_price_put(heston_model):
     assert price > 0
 
 def test_option_price_invalid_type(heston_model):
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="Invalid option type"):  # 添加异常匹配信息
         heston_model.option_price(S0=100, K=100, T=1, r=0.05, option_type='invalid', N=10000, steps=100)
 
 def test_simulate_long_time_horizon(heston_model):

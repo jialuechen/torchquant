@@ -52,7 +52,7 @@ def test_american_option_zero_volatility(setup_tensors):
         american_option('call', **setup_tensors)
 
 def test_american_option_invalid_type():
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="Invalid option type"):  # 添加异常匹配信息
         american_option('invalid', spot=torch.tensor(100.0), strike=torch.tensor(100.0),
                         expiry=torch.tensor(1.0), volatility=torch.tensor(0.2),
                         rate=torch.tensor(0.05), steps=100)

@@ -41,7 +41,7 @@ def test_calculate_var_empty_tensor():
         calculate_var(torch.tensor([]), 0.95)
 
 def test_calculate_var_invalid_confidence():
-    with pytest.raises(IndexError):
+    with pytest.raises(ValueError, match="Confidence level must be between 0 and 1"):  # 添加异常匹配信息
         calculate_var(torch.tensor([0.1, 0.2, 0.3]), 1.5)
 
 def test_calculate_var_2d_tensor():

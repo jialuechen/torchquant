@@ -4,6 +4,7 @@ This module provides functionality for pricing Asian options using a binomial tr
 """
 import torch
 from torch import Tensor
+from .utils import calculate_binomial_tree_params, backward_induction
 
 def asian_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, steps: int) -> Tensor:
     """
@@ -32,28 +33,9 @@ def asian_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor,
         pricing of Asian options, more sophisticated methods like Monte Carlo
         simulation are often preferred.
     """
-    # Calculate parameters for the binomial model
-    dt = expiry / steps
-    u = torch.exp(volatility * torch.sqrt(dt))  # Up factor
-    d = 1 / u  # Down factor
-    p = (torch.exp(rate * dt) - d) / (u - d)  # Risk-neutral probability
-
-    # Initialize the price tree
+    dt, u, d, p = calculate_binomial_tree_params(expiry, volatility, rate, steps)
     price_tree = torch.zeros((steps + 1, steps + 1))
     for i in range(steps + 1):
         for j in range(i + 1):
             price_tree[j, i] = spot * (u ** (i - j)) * (d ** j)
-
-    # Initialize the option value at expiration
-    if option_type == 'call':
-        value_tree = torch.maximum(price_tree[:, steps] - strike, torch.tensor(0.0))
-    elif option_type == 'put':
-        value_tree = torch.maximum(strike - price_tree[:, steps], torch.tensor(0.0))
-
-    # Vectorized backward induction
-    for i in range(steps - 1, -1, -1):
-        avg_prices = (price_tree[:i+1, i+1] + price_tree[1:i+2, i+1]) / 2
-        value_tree[:i+1] = torch.maximum(value_tree[:i+1], avg_prices - strike if option_type == 'call' else strike - avg_prices)
-
-    # The option price is the value at the root of the tree
-    return value_tree[0]
+    return backward_induction(option_type, price_tree, strike, rate, dt, p, steps)

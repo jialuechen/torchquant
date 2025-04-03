@@ -1,5 +1,5 @@
 [MASTER]
-ignore=tests
+ignore=tests,__pycache__  # 添加 __pycache__ 目录
 jobs=1
 
 [FORMAT]

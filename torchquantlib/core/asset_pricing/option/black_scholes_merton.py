@@ -32,18 +32,8 @@ def black_scholes_merton(option_type: str, option_style: str, spot: Tensor, stri
     d2 = d1 - volatility * torch.sqrt(expiry)
     
     if option_type == 'call':
-        if option_style == 'european':
-            # European call option price
-            price = spot * torch.exp(-dividend * expiry) * norm.cdf(d1) - strike * torch.exp(-rate * expiry) * norm.cdf(d2)
-        elif option_style == 'american':
-            # American call option price (approximation)
-            price = max(spot - strike, spot * torch.exp(-dividend * expiry) * norm.cdf(d1) - strike * torch.exp(-rate * expiry) * norm.cdf(d2))
+        price = spot * torch.exp(-dividend * expiry) * norm.cdf(d1) - strike * torch.exp(-rate * expiry) * norm.cdf(d2)
     elif option_type == 'put':
-        if option_style == 'european':
-            # European put option price
-            price = strike * torch.exp(-rate * expiry) * norm.cdf(-d2) - spot * torch.exp(-dividend * expiry) * norm.cdf(-d1)
-        elif option_style == 'american':
-            # American put option price (approximation)
-            price = max(strike - spot, strike * torch.exp(-rate * expiry) * norm.cdf(-d2) - spot * torch.exp(-dividend * expiry) * norm.cdf(-d1))
+        price = strike * torch.exp(-rate * expiry) * norm.cdf(-d2) - spot * torch.exp(-dividend * expiry) * norm.cdf(-d1)
     
     return price

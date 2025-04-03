@@ -52,7 +52,7 @@ pip install --upgrade torchquantlib
 
 ```python
 import torch
-from torchquantlib.core.asset_pricing.option_pricing.american_option import american_option
+from torchquantlib.core.asset_pricing.option.american_option import american_option  # 修正路径
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
@@ -69,7 +69,7 @@ print(f'American Option Price: {price.item()}')
 
 ```python
 import torch
-from torchquantlib.core.asset_pricing.option_pricing.bermudan_option import bermudan_option
+from torchquantlib.core.asset_pricing.option.bermudan_option import bermudan_option  # 修正路径
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)
@@ -87,7 +87,7 @@ print(f'Bermudan Option Price: {price.item()}')
 
 ```python
 import torch
-from torchquantlib.core.asset_pricing.option_pricing.asian_option import asian_option
+from torchquantlib.core.asset_pricing.option.asian_option import asian_option  # 修正路径
 
 spot = torch.tensor(100.0)
 strike = torch.tensor(105.0)

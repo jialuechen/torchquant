@@ -95,5 +95,5 @@ def test_negative_volatility():
     neg_vol_func = lambda S, t: torch.full_like(S, -0.2)
     dupire_model = DupireLocalVol(neg_vol_func)
     S0, T, N, steps = 100, 1, 1000, 252
-    with pytest.raises(RuntimeError):  # Expecting runtime error due to NaN values
+    with pytest.raises(RuntimeError, match="Negative volatility encountered"):  # 添加异常匹配信息
         dupire_model.simulate(S0, T, N, steps)
