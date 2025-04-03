@@ -84,8 +84,26 @@ def chooser_option(spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Ten
     """
     if volatility <= ZERO or expiry <= ZERO:
         raise ValueError("Volatility and expiry must be positive.")
-    call_price = black_scholes_merton(option_type='call', option_style='european', spot=spot, strike=strike, expiry=expiry, volatility=volatility, rate=rate, dividend=dividend)
-    put_price = black_scholes_merton(option_type='put', option_style='european', spot=spot, strike=strike, expiry=expiry, volatility=volatility, rate=rate, dividend=dividend)
+    call_price = black_scholes_merton(
+        option_type='call',
+        option_style='european',
+        spot=spot,
+        strike=strike,
+        expiry=expiry,
+        volatility=volatility,
+        rate=rate,
+        dividend=dividend
+    )
+    put_price = black_scholes_merton(
+        option_type='put',
+        option_style='european',
+        spot=spot,
+        strike=strike,
+        expiry=expiry,
+        volatility=volatility,
+        rate=rate,
+        dividend=dividend
+    )
     return call_price + put_price
 
 def compound_option(spot: Tensor, strike1: Tensor, strike2: Tensor, expiry1: Tensor, expiry2: Tensor, volatility: Tensor, rate: Tensor, dividend: Tensor) -> Tensor:
