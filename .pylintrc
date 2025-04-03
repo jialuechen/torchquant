@@ -1,0 +1,9 @@
+[MASTER]
+ignore=tests
+jobs=1
+
+[FORMAT]
+max-line-length=88
+
+[MESSAGES CONTROL]
+disable=C0114,C0115,C0116

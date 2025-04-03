@@ -1,3 +1,7 @@
+"""
+Asian Option Pricing Module
+This module provides functionality for pricing Asian options using a binomial tree model.
+"""
 import torch
 from torch import Tensor
 
@@ -46,17 +50,10 @@ def asian_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor,
     elif option_type == 'put':
         value_tree = torch.maximum(strike - price_tree[:, steps], torch.tensor(0.0))
 
-    # Backward induction through the tree (vectorized)
+    # Vectorized backward induction
     for i in range(steps - 1, -1, -1):
-        # Compute the average price of adjacent nodes
         avg_prices = (price_tree[:i+1, i+1] + price_tree[1:i+2, i+1]) / 2
-        # Update the expected option value using risk-neutral probability p and discount factor
-        value_tree[:i+1] = (p * value_tree[:i+1] + (1 - p) * value_tree[1:i+2]) * torch.exp(-rate * dt)
-        # For call/put options, compare with early exercise payoff
-        if option_type == 'call':
-            value_tree[:i+1] = torch.maximum(value_tree[:i+1], avg_prices - strike)
-        elif option_type == 'put':
-            value_tree[:i+1] = torch.maximum(value_tree[:i+1], strike - avg_prices)
+        value_tree[:i+1] = torch.maximum(value_tree[:i+1], avg_prices - strike if option_type == 'call' else strike - avg_prices)
 
     # The option price is the value at the root of the tree
     return value_tree[0]
