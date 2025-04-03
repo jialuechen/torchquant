@@ -1,3 +1,7 @@
+"""
+Bermudan Option Pricing Module
+This module provides functionality for pricing Bermudan options using a binomial tree model.
+"""
 import torch
 from torch import Tensor
 
