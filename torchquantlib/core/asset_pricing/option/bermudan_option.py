@@ -31,8 +31,12 @@ def bermudan_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tens
         It allows for early exercise, but only on specified dates.
     """
     dt, u, d, p = calculate_binomial_tree_params(expiry, volatility, rate, steps)
-    price_tree = torch.zeros((steps + 1, steps + 1))
-    for i in range(steps + 1):
-        for j in range(i + 1):
-            price_tree[j, i] = spot * (u ** (i - j)) * (d ** j)
+    
+    # Construct the price tree using tensor operations
+    indices = torch.arange(steps + 1, dtype=torch.float32)
+    i, j = torch.meshgrid(indices, indices, indexing='ij')
+    mask = j <= i  # Only keep valid positions in the tree
+    price_tree = spot * (u ** (i - j)) * (d ** j) * mask
+
+    # Perform backward induction
     return backward_induction(option_type, price_tree, strike, rate, dt, p, steps, exercise_dates)

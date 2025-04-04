@@ -6,13 +6,9 @@ import torch
 from torch import Tensor
 from .utils import calculate_binomial_tree_params, backward_induction
 
-def asian_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, steps: int) -> Tensor:
+def asian_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, steps: int, average_type: str = "arithmetic") -> Tensor:
     """
-    Price an arithmetic average Asian option using a modified binomial tree model.
-
-    This function implements a binomial tree approach to price Asian options,
-    which are path-dependent options where the payoff depends on the average
-    price of the underlying asset over a specified period.
+    Price an Asian option using a modified binomial tree model.
 
     Args:
         option_type (str): Type of option - either 'call' or 'put'.
@@ -22,20 +18,38 @@ def asian_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor,
         volatility (Tensor): Volatility of the underlying asset.
         rate (Tensor): Risk-free interest rate (annualized).
         steps (int): Number of time steps in the binomial tree.
+        average_type (str): Type of average - 'arithmetic' or 'geometric'.
 
     Returns:
-        Tensor: The price of the arithmetic average Asian option.
-
-    Note:
-        This implementation uses a simplified approach for Asian options within
-        the binomial tree framework. It approximates the average at each node
-        using only the current and next time step prices. For more accurate
-        pricing of Asian options, more sophisticated methods like Monte Carlo
-        simulation are often preferred.
+        Tensor: The price of the Asian option.
     """
     dt, u, d, p = calculate_binomial_tree_params(expiry, volatility, rate, steps)
-    price_tree = torch.zeros((steps + 1, steps + 1))
-    for i in range(steps + 1):
-        for j in range(i + 1):
-            price_tree[j, i] = spot * (u ** (i - j)) * (d ** j)
-    return backward_induction(option_type, price_tree, strike, rate, dt, p, steps)
+    
+    # Initialize tensors for prices and averages
+    price_tree = torch.zeros((steps + 1, steps + 1), device=spot.device)
+    avg_tree = torch.zeros_like(price_tree)
+    price_tree[:, 0] = spot  # Set initial spot price for all paths
+    avg_tree[:, 0] = spot
+
+    # Build the tree dynamically using vectorized operations
+    for i in range(1, steps + 1):
+        up_mask = torch.arange(i + 1, device=spot.device) > 0
+        down_mask = ~up_mask
+
+        # Calculate up and down prices
+        price_tree[:i + 1, i] = torch.where(
+            up_mask,
+            price_tree[:i, i - 1] * u,
+            price_tree[:i, i - 1] * d
+        )
+
+        # Update average tree based on the selected average type
+        if average_type == "arithmetic":
+            avg_tree[:i + 1, i] = (avg_tree[:i, i - 1] * (i - 1) + price_tree[:i + 1, i]) / i
+        elif average_type == "geometric":
+            avg_tree[:i + 1, i] = torch.exp((torch.log(avg_tree[:i, i - 1]) * (i - 1) + torch.log(price_tree[:i + 1, i])) / i)
+        else:
+            raise ValueError(f"Unsupported average_type: {average_type}")
+
+    # Perform backward induction using the average tree
+    return backward_induction(option_type, avg_tree, strike, rate, dt, p, steps)
