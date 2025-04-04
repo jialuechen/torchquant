@@ -1,222 +1,296 @@
 import torch
 from torch import Tensor
+import torch.nn as nn
+from typing import List, Union, Optional, Tuple
 from scipy.stats import norm
 from .black_scholes_merton import black_scholes_merton
 
 ZERO = torch.tensor(0.0)
 
-def validate_parameters(volatility: Tensor, expiry: Tensor, num_paths: int = None):
-    """
-    Validate common parameters for option pricing functions.
-    """
-    if volatility <= ZERO or expiry <= ZERO:
-        raise ValueError("Volatility and expiry must be positive.")
-    if num_paths is not None and num_paths <= 0:
-        raise ValueError("Number of paths must be a positive integer.")
+class ValidationMixin:
+    """Mixin class for validating parameters"""
+    @staticmethod
+    def validate_parameters(volatility: Tensor, expiry: Tensor, num_paths: Optional[int] = None):
+        """Validate option parameters"""
+        if volatility <= ZERO or expiry <= ZERO:
+            raise ValueError("Volatility and expiry must be positive.")
+        if num_paths is not None and num_paths <= 0:
+            raise ValueError("Number of paths must be a positive integer.")
 
-def digital_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, payout: Tensor, num_paths: int) -> Tensor:
-    """
-    Price a digital option using Monte Carlo simulation.
+    @staticmethod
+    def validate_option_type(option_type: str):
+        """Validate option type"""
+        if option_type not in ['call', 'put']:
+            raise ValueError("Option type must be either 'call' or 'put'.")
 
-    Args:
-        option_type (str): Type of option - either 'call' or 'put'.
-        spot (Tensor): Spot price of the underlying asset.
-        strike (Tensor): Strike price of the option.
-        expiry (Tensor): Time to expiration in years.
-        volatility (Tensor): Volatility of the underlying asset.
-        rate (Tensor): Risk-free interest rate.
-        payout (Tensor): Fixed payout of the option.
-        num_paths (int): Number of Monte Carlo simulation paths.
+class ExoticOption(nn.Module, ValidationMixin):
+    """Base class for exotic options"""
+    def __init__(self):
+        super().__init__()
 
-    Returns:
-        Tensor: The price of the digital option.
-    """
-    validate_parameters(volatility, expiry, num_paths)
+    def forward(self, *args, **kwargs) -> Tensor:
+        raise NotImplementedError
 
-    # Simulate asset price paths at expiry
+def digital_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor,
+                  volatility: Tensor, rate: Tensor, payout: Tensor, num_paths: int) -> Tensor:
+    """Price a digital option using Monte Carlo simulation"""
+    ValidationMixin.validate_parameters(volatility, expiry, num_paths)
+    ValidationMixin.validate_option_type(option_type)
+
     z = torch.randn(num_paths, device=spot.device)
-    asset_prices = spot * torch.exp((rate - 0.5 * volatility**2) * expiry + volatility * torch.sqrt(expiry) * z)
+    asset_prices = spot * torch.exp(
+        (rate - 0.5 * volatility**2) * expiry + 
+        volatility * torch.sqrt(expiry) * z
+    )
+
+    payoffs = ((asset_prices >= strike) if option_type == 'call' else (asset_prices <= strike)).float() * payout
+    return (payoffs * torch.exp(-rate * expiry)).mean()
+
+def rainbow_option(spots: List[Tensor], weights: List[Tensor], strike: Tensor, expiry: Tensor,
+                  volatilities: List[Tensor], correlations: Tensor, rate: Tensor, num_paths: int) -> Tensor:
+    """Price a rainbow option using Monte Carlo simulation"""
+    n_assets = len(spots)
+    spots = torch.stack(spots)
+    vols = torch.stack(volatilities)
+    weights = torch.stack(weights)
+
+    # Generate correlated random numbers
+    z = torch.randn(num_paths, n_assets, device=spots.device)
+    L = torch.linalg.cholesky(correlations)
+    corr_rand = z @ L.T
+
+    # Simulate asset prices
+    prices = spots.unsqueeze(0) * torch.exp(
+        (rate - 0.5 * vols**2).unsqueeze(0) * expiry + 
+        vols.unsqueeze(0) * torch.sqrt(expiry) * corr_rand
+    )
+    
+    # Calculate portfolio value
+    portfolio = torch.sum(prices * weights, dim=1)
+    payoffs = torch.maximum(portfolio - strike, ZERO)
+    
+    return (payoffs * torch.exp(-rate * expiry)).mean()
+
+def barrier_option(option_type: str, barrier_type: str, spot: Tensor, strike: Tensor, 
+                  barrier: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, 
+                  num_paths: int, num_steps: int) -> Tensor:    
+    """Price a barrier option using Monte Carlo simulation"""
+    ValidationMixin.validate_parameters(volatility, expiry, num_paths)
+    ValidationMixin.validate_option_type(option_type)
+    
+    if barrier_type not in ['up-and-out', 'down-and-out', 'up-and-in', 'down-and-in']:
+        raise ValueError("Invalid barrier type")
+
+    dt = expiry / num_steps
+    paths = torch.zeros(num_paths, num_steps + 1, device=spot.device)
+    paths[:, 0] = spot
+    
+    # Simulate price paths
+    for t in range(1, num_steps + 1):
+        z = torch.randn(num_paths, device=spot.device)
+        paths[:, t] = paths[:, t-1] * torch.exp(
+            (rate - 0.5 * volatility**2) * dt + 
+            volatility * torch.sqrt(dt) * z
+        )
+    
+    # Check barrier conditions
+    barrier_hit = {
+        'up-and-out': torch.any(paths > barrier, dim=1),
+        'down-and-out': torch.any(paths < barrier, dim=1),
+        'up-and-in': torch.any(paths >= barrier, dim=1),
+        'down-and-in': torch.any(paths <= barrier, dim=1)
+    }[barrier_type]
+    
+    # Calculate payoffs
+    if option_type == 'call':
+        payoffs = torch.maximum(paths[:, -1] - strike, ZERO)
+    else:
+        payoffs = torch.maximum(strike - paths[:, -1], ZERO)
+        
+    if barrier_type.endswith('out'):
+        payoffs = torch.where(barrier_hit, ZERO, payoffs)
+    else:
+        payoffs = torch.where(barrier_hit, payoffs, ZERO)
+    
+    return (payoffs * torch.exp(-rate * expiry)).mean()
+
+def lookback_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor,
+                   volatility: Tensor, rate: Tensor, num_paths: int, 
+                   strike_type: str = 'fixed') -> Tensor:
+    """Price a lookback option using Monte Carlo simulation"""
+    ValidationMixin.validate_parameters(volatility, expiry, num_paths)
+    ValidationMixin.validate_option_type(option_type)
+    
+    if strike_type not in ['fixed', 'floating']:
+        raise ValueError("Invalid strike type")
+
+    dt = expiry / 252  # Daily steps
+    num_steps = int(expiry / dt)
+    paths = torch.zeros(num_paths, num_steps + 1, device=spot.device)
+    paths[:, 0] = spot
+    
+    # Simulate price paths
+    for t in range(1, num_steps + 1):
+        z = torch.randn(num_paths, device=spot.device)
+        paths[:, t] = paths[:, t-1] * torch.exp(
+            (rate - 0.5 * volatility**2) * dt + 
+            volatility * torch.sqrt(dt) * z
+        )
+    
+    # Calculate payoffs
+    if option_type == 'call':
+        if strike_type == 'fixed':
+            payoffs = torch.maximum(paths.max(dim=1).values - strike, ZERO)
+        else:  # floating
+            payoffs = torch.maximum(paths[:, -1] - paths.max(dim=1).values, ZERO)
+    else:  # put
+        if strike_type == 'fixed':
+            payoffs = torch.maximum(strike - paths.min(dim=1).values, ZERO)
+        else:  # floating
+            payoffs = torch.maximum(paths.min(dim=1).values - paths[:, -1], ZERO)
+    
+    return (payoffs * torch.exp(-rate * expiry)).mean()
+
+def asian_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor,
+                volatility: Tensor, rate: Tensor, num_paths: int, num_steps: int,
+                average_type: str = 'arithmetic') -> Tensor:
+    """Price an Asian option using Monte Carlo simulation"""
+    ValidationMixin.validate_parameters(volatility, expiry, num_paths)
+    ValidationMixin.validate_option_type(option_type)
+    
+    if average_type not in ['arithmetic', 'geometric']:
+        raise ValueError("Invalid average type")
+
+    dt = expiry / num_steps
+    paths = torch.zeros(num_paths, num_steps + 1, device=spot.device)
+    paths[:, 0] = spot
+    
+    # Simulate price paths
+    for t in range(1, num_steps + 1):
+        z = torch.randn(num_paths, device=spot.device)
+        paths[:, t] = paths[:, t-1] * torch.exp(
+            (rate - 0.5 * volatility**2) * dt + 
+            volatility * torch.sqrt(dt) * z
+        )
+    
+    # Calculate average price
+    if average_type == 'arithmetic':
+        avg_price = paths.mean(dim=1)
+    else:  # geometric
+        avg_price = torch.exp(torch.log(paths).mean(dim=1))
+    
+    # Calculate payoffs
+    if option_type == 'call':
+        payoffs = torch.maximum(avg_price - strike, ZERO)
+    else:  # put
+        payoffs = torch.maximum(strike - avg_price, ZERO)
+    
+    return (payoffs * torch.exp(-rate * expiry)).mean()
+
+def quanto_option(spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor,
+                 fx_volatility: Tensor, correlation: Tensor, domestic_rate: Tensor,
+                 foreign_rate: Tensor, fx_rate: Tensor, num_paths: int) -> Tensor:
+    """Price a quanto option using Monte Carlo simulation"""
+    ValidationMixin.validate_parameters(volatility, expiry, num_paths)
+
+    # Generate correlated random numbers
+    z1 = torch.randn(num_paths, device=spot.device)
+    z2 = correlation * z1 + torch.sqrt(1 - correlation**2) * torch.randn(num_paths, device=spot.device)
+
+    # Simulate asset and FX rate paths
+    asset_prices = spot * torch.exp(
+        (foreign_rate - 0.5 * volatility**2) * expiry +
+        volatility * torch.sqrt(expiry) * z1
+    )
+    
+    fx_rates = fx_rate * torch.exp(
+        (domestic_rate - foreign_rate - 0.5 * fx_volatility**2) * expiry +
+        fx_volatility * torch.sqrt(expiry) * z2
+    )
+
+    # Calculate quanto payoffs
+    payoffs = torch.maximum(asset_prices - strike, ZERO) * fx_rates
+    return (payoffs * torch.exp(-domestic_rate * expiry)).mean()
+
+def basket_option(spots: List[Tensor], weights: List[Tensor], strike: Tensor, expiry: Tensor,
+                 volatilities: List[Tensor], correlations: Tensor, rate: Tensor,
+                 option_type: str, num_paths: int) -> Tensor:
+    """Price a basket option using Monte Carlo simulation"""
+    ValidationMixin.validate_parameters(torch.tensor(volatilities).min(), expiry, num_paths)
+    ValidationMixin.validate_option_type(option_type)
+
+    n_assets = len(spots)
+    spots = torch.stack(spots)
+    vols = torch.stack(volatilities)
+    weights = torch.stack(weights)
+
+    # Generate correlated random numbers
+    z = torch.randn(num_paths, n_assets, device=spots.device)
+    L = torch.linalg.cholesky(correlations)
+    corr_rand = z @ L.T
+
+    # Simulate asset prices
+    prices = spots.unsqueeze(0) * torch.exp(
+        (rate - 0.5 * vols**2).unsqueeze(0) * expiry +
+        vols.unsqueeze(0) * torch.sqrt(expiry) * corr_rand
+    )
+
+    # Calculate basket value
+    basket_value = torch.sum(prices * weights, dim=1)
 
     # Calculate payoffs
     if option_type == 'call':
-        payoffs = (asset_prices >= strike).float() * payout
-    elif option_type == 'put':
-        payoffs = (asset_prices <= strike).float() * payout
+        payoffs = torch.maximum(basket_value - strike, ZERO)
+    else:  # put
+        payoffs = torch.maximum(strike - basket_value, ZERO)
 
-    # Discount payoffs to present value
-    discounted_payoffs = payoffs * torch.exp(-rate * expiry)
+    return (payoffs * torch.exp(-rate * expiry)).mean()
 
-    return discounted_payoffs.mean()
+class CurranAsianOption(ExoticOption):
+    """Price an Asian option using Curran's approximation"""
+    def __init__(self, option_type: str, average_type: str = 'arithmetic'):
+        super().__init__()
+        self.option_type = option_type
+        self.average_type = average_type
+        self.validate_option_type(option_type)
+        
+    def forward(self, spot: Tensor, strike: Tensor, expiry: Tensor,
+               volatility: Tensor, rate: Tensor, num_steps: int) -> Tensor:
+        """Calculate the price using Curran's approximation"""
+        self.validate_parameters(volatility, expiry)
+        
+        dt = expiry / num_steps
+        adjusted_vol = volatility * torch.sqrt((num_steps + 1) / (6 * num_steps))
+        
+        if self.average_type == 'arithmetic':
+            # Curran approximation
+            d1 = (torch.log(spot/strike) + (rate + 0.5 * adjusted_vol**2) * expiry) / (adjusted_vol * torch.sqrt(expiry))
+            d2 = d1 - adjusted_vol * torch.sqrt(expiry)
+            
+            if self.option_type == 'call':
+                price = spot * torch.exp(-rate * expiry) * norm.cdf(d1) - strike * torch.exp(-rate * expiry) * norm.cdf(d2)
+            else:
+                price = strike * torch.exp(-rate * expiry) * norm.cdf(-d2) - spot * torch.exp(-rate * expiry) * norm.cdf(-d1)
+        else:
+            # Analytical solution for geometric average
+            adjusted_rate = rate - 0.5 * (volatility**2) / 3
+            price = black_scholes_merton(
+                self.option_type, 'european', spot, strike, expiry,
+                adjusted_vol, adjusted_rate, torch.tensor(0.0)
+            )
+            
+        return price
 
-def chooser_option(spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, dividend: Tensor) -> Tensor:
-    """
-    Calculate the price of a chooser option.
+def chooser_option(spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor,
+                  rate: Tensor, choose_time: Tensor) -> Tensor:
+    """Price a chooser option using Black-Scholes formula"""
+    ValidationMixin.validate_parameters(volatility, expiry)
 
-    A chooser option gives the holder the right to choose whether the option is a call or put at time 0.
+    # Calculate call and put prices at the choose time
+    d1 = (torch.log(spot/strike) + (rate + 0.5 * volatility**2) * (expiry - choose_time)) / (volatility * torch.sqrt(expiry - choose_time))
+    d2 = d1 - volatility * torch.sqrt(expiry - choose_time)
 
-    Args:
-        spot (Tensor): The spot price of the underlying asset
-        strike (Tensor): The strike price of the option
-        expiry (Tensor): The time to expiry in years
-        volatility (Tensor): The volatility of the underlying asset
-        rate (Tensor): The risk-free interest rate
-        dividend (Tensor): The dividend yield
+    call_price = spot * norm.cdf(d1) - strike * torch.exp(-rate * (expiry - choose_time)) * norm.cdf(d2)
+    put_price = strike * torch.exp(-rate * (expiry - choose_time)) * norm.cdf(-d2) - spot * norm.cdf(-d1)
 
-    Returns:
-        Tensor: The price of the chooser option
-    """
-    validate_parameters(volatility, expiry)
-
-    # Calculate call and put prices using Black-Scholes formula
-    call_price = black_scholes_merton(
-        option_type='call',
-        option_style='european',
-        spot=spot,
-        strike=strike,
-        expiry=expiry,
-        volatility=volatility,
-        rate=rate,
-        dividend=dividend
-    )
-    put_price = black_scholes_merton(
-        option_type='put',
-        option_style='european',
-        spot=spot,
-        strike=strike,
-        expiry=expiry,
-        volatility=volatility,
-        rate=rate,
-        dividend=dividend
-    )
-    return call_price + put_price
-
-def compound_option(spot: Tensor, strike1: Tensor, strike2: Tensor, expiry1: Tensor, expiry2: Tensor, volatility: Tensor, rate: Tensor, dividend: Tensor) -> Tensor:
-    """
-    Calculate the price of a compound option (an option on an option).
-
-    Args:
-        spot (Tensor): The spot price of the underlying asset
-        strike1 (Tensor): The strike price of the underlying option
-        strike2 (Tensor): The strike price of the compound option
-        expiry1 (Tensor): The time to expiry of the underlying option in years
-        expiry2 (Tensor): The time to expiry of the compound option in years
-        volatility (Tensor): The volatility of the underlying asset
-        rate (Tensor): The risk-free interest rate
-        dividend (Tensor): The dividend yield
-
-    Returns:
-        Tensor: The price of the compound option
-    """
-    validate_parameters(volatility, expiry1)
-    validate_parameters(volatility, expiry2)
-
-    # Price of the underlying option at expiry2
-    underlying_option_price = black_scholes_merton(
-        option_type='call',
-        option_style='european',
-        spot=spot,
-        strike=strike1,
-        expiry=expiry1,
-        volatility=volatility,
-        rate=rate,
-        dividend=dividend
-    )
-
-    # Compound option price
-    d1 = (torch.log(underlying_option_price / strike2) + (rate + 0.5 * volatility ** 2) * expiry2) / (volatility * torch.sqrt(expiry2))
-    d2 = d1 - volatility * torch.sqrt(expiry2)
-    price = torch.exp(-rate * expiry2) * (underlying_option_price * norm.cdf(d1) - strike2 * norm.cdf(d2))
-
-    return price
-
-def shout_option(spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, dividend: Tensor) -> Tensor:
-    """
-    Calculate the price of a shout option.
-
-    A shout option allows the holder to "shout" once during the life of the option to lock in a minimum payoff.
-
-    Args:
-        spot (Tensor): The spot price of the underlying asset
-        strike (Tensor): The strike price of the option
-        expiry (Tensor): The time to expiry in years
-        volatility (Tensor): The volatility of the underlying asset
-        rate (Tensor): The risk-free interest rate
-        dividend (Tensor): The dividend yield
-
-    Returns:
-        Tensor: The price of the shout option
-    """
-    validate_parameters(volatility, expiry)
-
-    # Standard call option price
-    call_price = black_scholes_merton(
-        option_type='call',
-        option_style='european',
-        spot=spot,
-        strike=strike,
-        expiry=expiry,
-        volatility=volatility,
-        rate=rate,
-        dividend=dividend
-    )
-
-    # Additional value from the shout feature
-    d1 = (torch.log(spot / strike) + (rate - dividend + 0.5 * volatility ** 2) * expiry) / (volatility * torch.sqrt(expiry))
-    shout_value = spot * torch.exp(-dividend * expiry) * (1 - torch.tensor(norm.cdf(d1)))
-
-    return call_price + shout_value
-
-def lookback_option(option_type: str, spot: Tensor, strike: Tensor, expiry: Tensor, volatility: Tensor, rate: Tensor, num_paths: int, strike_type: str = 'fixed') -> Tensor:
-    """
-    Price a lookback option using Monte Carlo simulation.
-
-    A lookback option's payoff depends on the optimal (maximum for call, minimum for put) price of the underlying asset during the option's life.
-
-    Args:
-        option_type (str): Type of option - either 'call' or 'put'.
-        spot (Tensor): Current price of the underlying asset.
-        strike (Tensor): Strike price of the option (used only for fixed strike).
-        expiry (Tensor): Time to expiration in years.
-        volatility (Tensor): Volatility of the underlying asset.
-        rate (Tensor): Risk-free interest rate (annualized).
-        num_paths (int): Number of Monte Carlo simulation paths.
-        strike_type (str): Type of strike price - either 'fixed' or 'floating'. Defaults to 'fixed'.
-
-    Returns:
-        Tensor: The price of the lookback option.
-    """
-    validate_parameters(volatility, expiry, num_paths)
-    if strike_type not in ['fixed', 'floating']:
-        raise ValueError("Strike type must be either 'fixed' or 'floating'.")
-
-    dt = expiry / 252  # Assume 252 trading days in a year
-    num_steps = int(expiry / dt)
-    z = torch.randn(num_paths, num_steps, device=spot.device)
-    asset_paths = torch.zeros(num_paths, num_steps + 1, device=spot.device)
-    asset_paths[:, 0] = spot
-
-    # Simulate asset price paths
-    for t in range(1, num_steps + 1):
-        asset_paths[:, t] = asset_paths[:, t - 1] * torch.exp((rate - 0.5 * volatility**2) * dt + volatility * torch.sqrt(dt) * z[:, t - 1])
-
-    if option_type == 'call':
-        if strike_type == 'fixed':
-            max_prices = asset_paths.max(dim=1).values
-            payoffs = torch.maximum(max_prices - strike, ZERO)
-        elif strike_type == 'floating':
-            final_prices = asset_paths[:, -1]
-            max_prices = asset_paths.max(dim=1).values
-            payoffs = torch.maximum(final_prices - max_prices, ZERO)
-    elif option_type == 'put':
-        if strike_type == 'fixed':
-            min_prices = asset_paths.min(dim=1).values
-            payoffs = torch.maximum(strike - min_prices, ZERO)
-        elif strike_type == 'floating':
-            final_prices = asset_paths[:, -1]
-            min_prices = asset_paths.min(dim=1).values
-            payoffs = torch.maximum(min_prices - final_prices, ZERO)
-
-    # Discount payoffs to present value
-    discounted_payoffs = payoffs * torch.exp(-rate * expiry)
-
-    return discounted_payoffs.mean()
+    return torch.maximum(call_price, put_price) * torch.exp(-rate * choose_time)
