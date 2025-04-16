@@ -1,5 +1,5 @@
 <div align=center>
-<img src="assets/torchquant.png" width="40%" loc>
+<img src="assets/torchquant.png" width="20%" loc>
 
 [![PyPI version](https://badge.fury.io/py/torchquantlib.svg)](https://badge.fury.io/py/torchquantlib)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
