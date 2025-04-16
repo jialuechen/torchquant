@@ -1,3 +1,4 @@
+
 <div align=center>
 <img src="assets/torchquant.png" width="40%" loc>
 
@@ -35,6 +36,43 @@
  
 - **Sequence Methods**:
   - Seq2Seq PDE solvers
+
+## 📘 Financial Instruments and Neural Network Mechanisms Analogy
+
+This table outlines the analogy between financial instruments and neural network components, reflecting how structural and functional characteristics of financial derivatives can inspire the design of differentiable components in TorchQuant.
+
+| Financial Instrument / Attribute       | Core Feature / Description                             | Analogous Neural Network Mechanism                  | Analogy Explanation                                                                 |
+|----------------------------------------|--------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------|
+| **European Options (Call & Put)**      | Call: max(S − K, 0); Put: max(K − S, 0)                | ReLU / Mirrored ReLU                                | Activation occurs when input exceeds or falls below a threshold                      |
+| **Softplus Option Proxy**              | Smooth version of option payoff                        | Softplus Activation Function                        | Provides smooth derivatives, suitable for differentiable training                    |
+| **American Option**                    | Early exercise right; optimal stopping strategy         | Optimal Stopping / Gated RNN                        | Dynamic decision-making akin to gating mechanisms                                    |
+| **Barrier Option**                     | Activation/deactivation upon reaching a barrier         | Conditional Activation / Dropout-like Mechanism     | Activation triggered by specific conditions                                          |
+| **Asian Option**                       | Payoff depends on average price over time               | Average Pooling                                     | Aggregates information over time, similar to pooling layers                          |
+| **Lookback Option**                    | Payoff depends on maximum or minimum asset price        | Self-Attention / Max Pooling                        | Focuses on historical extrema, akin to attention mechanisms                          |
+| **Cliquet Option**                     | Periodic capped accumulation of returns                 | Recurrent Accumulation with Clipping                | Accumulates over time with upper/lower bounds                                        |
+| **Chooser Option**                     | Choice between call or put at a future date             | Routing / Path Selection                            | Dynamic selection of computational paths based on conditions                         |
+| **Digital Option**                     | Fixed payoff if condition is met; zero otherwise        | Binary Neuron / Step Function                       | Outputs fixed value upon meeting a threshold                                         |
+| **Auto-callable Note**                 | Early redemption upon reaching certain conditions       | Early Exit Policy                                   | Mechanism for early stopping based on specific criteria                              |
+| **Rainbow Option**                     | Payoff based on multiple underlying assets              | Multi-Modal Fusion / Feature Aggregation            | Combines multiple inputs, similar to multi-head attention                            |
+| **Snowball Option**                    | Knock-in/knock-out with structured returns              | Nested Conditional Networks / Loss Scheduling       | Complex conditional structures with layered conditions                               |
+| **Shout Option**                       | Lock in payoff once during life, compare with terminal  | Checkpoint / Write-Once Memory / Path Override      | Saves a snapshot for later comparison, simulating a "one-time memory commit"         |
+| **Reverse Convertible Bond**           | Converts to equity under certain conditions             | Cost-sensitive Loss                                 | Loss function varies based on specific conditions                                    |
+| **Capital Protected Note**             | Downside protection with capped upside                  | Leaky ReLU                                          | Activation with lower bound protection and upper limit                               |
+| **Credit Default Swap (CDS)**          | Protection against default risk                         | Adversarial Training / Defense Mechanisms           | Enhances model robustness against worst-case scenarios                               |
+| **Credit Index (CDX)**                 | Basket of credit exposures                              | Ensemble Adversarial Defense                        | Combines multiple defenses to mitigate diverse risks                                 |
+| **Interest Rate Swap**                 | Exchange of fixed and floating interest rates           | Weight Sharing / Dual-Stream Networks               | Mutual exchange of parameters or information between network streams                 |
+| **Interest Rate Caps/Floors**          | Limits on interest rate fluctuations                    | Gradient Clipping                                   | Restricts extreme variations during training                                         |
+| **Variance Swap**                      | Trading future realized variance                        | Loss Variance Across Tasks (Meta-Learning)          | Models sensitivity to variability across different tasks or inputs                   |
+| **Delta**                              | Sensitivity to underlying asset price                   | Gradient with respect to Input                      | Measures how input changes affect the output                                         |
+| **Gamma**                              | Rate of change of Delta                                 | Hessian / Curvature Sensitivity                     | Captures second-order sensitivity in models                                          |
+| **Vega**                               | Sensitivity to volatility                               | Noise Sensitivity / Dropout Response                | Model's response to input noise or perturbations                                     |
+| **Theta**                              | Time decay of option value                              | Loss Drift / Time-aware Modeling                    | Changes in loss over time, akin to temporal decay                                    |
+| **Rho**                                | Sensitivity to interest rates                           | External Parameter Sensitivity                      | Model's sensitivity to external condition changes                                    |
+| **Transaction Costs (TCA)**            | Costs associated with trading                           | L1 / L2 Regularization                              | Penalizes excessive activity or complexity                                           |
+| **Slippage**                           | Execution price deviation from expected price           | Batch Noise / Perturbed Input                       | Variability introduced during execution or input                                     |
+| **Market Impact**                      | Price movement caused by large trades                   | Gradient Clipping / Smooth Updates                  | Prevents abrupt changes during training                                              |
+
+## Installation
 
 ## Installation
 
