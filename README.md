@@ -17,19 +17,16 @@
 - **Asset Pricing**:
   - Option pricing models including BSM, Heston, binomial tree, and Monte Carlo simulations.
   - Bond pricing models including callable, putable, and convertible bonds.
-  - Advanced options support for American, Bermudan, Asian, barrier and look-back options.
+  - Advanced options pricing support ranging from vanilla to exotics.
   - Implied volatility calculation using "Let's be rational" algorithm.
 
 - **Risk Management**:
-  - Greeks calculation utilizing Malliavin calculus.
-  - Scenario analysis and stress testing.
+  - Greeks calculation utilizing AAD.
   - Market risk measures such as VaR and Expected Shortfall.
-  - Credit risk models including structural and reduced form models.
 
 - **Neural Network-based Model Calibration**:
   - Calibration for stochastic models like Heston, Vasicek, SABR, and more.
   - Local volatility models including Dupire.
-  - Optimal Transport for model calibration
  
 - **Sequence Methods**:
   - Seq2Seq PDE solvers
