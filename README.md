@@ -30,7 +30,7 @@
 - **Sequence Methods**:
   - Seq2Seq PDE solvers
 
-## 📘 Financial Instruments and Neural Network Mechanisms Analogy
+## Financial Instruments and Neural Network Mechanisms Analogy
 
 This table outlines the analogy between financial instruments and neural network components, reflecting how structural and functional characteristics of financial derivatives can inspire the design of all the pricing components in TorchQuant.
 
