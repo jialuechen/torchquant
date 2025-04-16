@@ -19,14 +19,12 @@
   - Bond pricing models including callable, putable, and convertible bonds.
   - Advanced options support for American, Bermudan, Asian, barrier and look-back options.
   - Implied volatility calculation using "Let's be rational" algorithm.
-  - Futures and currency pricing.
 
 - **Risk Management**:
   - Greeks calculation utilizing Malliavin calculus.
   - Scenario analysis and stress testing.
   - Market risk measures such as VaR and Expected Shortfall.
   - Credit risk models including structural and reduced form models.
-  - Valuation adjustments (CVA, DVA, MVA, FVA).
 
 - **Neural Network-based Model Calibration**:
   - Calibration for stochastic models like Heston, Vasicek, SABR, and more.
@@ -38,7 +36,7 @@
 
 ## 📘 Financial Instruments and Neural Network Mechanisms Analogy
 
-This table outlines the analogy between financial instruments and neural network components, reflecting how structural and functional characteristics of financial derivatives can inspire the design of differentiable components in TorchQuant.
+This table outlines the analogy between financial instruments and neural network components, reflecting how structural and functional characteristics of financial derivatives can inspire the design of all the pricing components in TorchQuant.
 
 | Financial Instrument / Attribute       | Core Feature / Description                             | Analogous Neural Network Mechanism                  | Analogy Explanation                                                                 |
 |----------------------------------------|--------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------|
