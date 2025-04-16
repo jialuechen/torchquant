@@ -69,8 +69,6 @@ This table outlines the analogy between financial instruments and neural network
 | **Theta**                              | Time decay of option value                              | Loss Drift / Time-aware Modeling                    | Changes in loss over time, akin to temporal decay                                    |
 | **Rho**                                | Sensitivity to interest rates                           | External Parameter Sensitivity                      | Model's sensitivity to external condition changes                                    |
 | **Transaction Costs (TCA)**            | Costs associated with trading                           | L1 / L2 Regularization                              | Penalizes excessive activity or complexity                                           |
-| **Slippage**                           | Execution price deviation from expected price           | Batch Noise / Perturbed Input                       | Variability introduced during execution or input                                     |
-| **Market Impact**
 | **As-You-Like-It Option**             | Flexibly choose payoff type and strike at expiry       | Meta-Controller / Dynamic Architecture Search        | Learns to select the optimal payoff structure or parameter path at runtime          |
                       | Price movement caused by large trades                   | Gradient Clipping / Smooth Updates                  | Prevents abrupt changes during training                                              |
 
