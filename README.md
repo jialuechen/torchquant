@@ -15,9 +15,8 @@
 ## Features
 
 - **Asset Pricing**:
-  - Option pricing models including BSM, Heston, binomial tree, and Monte Carlo simulations.
-  - Bond pricing models including callable, putable, and convertible bonds.
   - Advanced options pricing support ranging from vanilla to exotics.
+  - Bond pricing models including callable, putable, and convertible bonds.
   - Implied volatility calculation using "Let's be rational" algorithm.
 
 - **Risk Management**:
