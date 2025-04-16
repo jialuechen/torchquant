@@ -70,7 +70,6 @@ This table outlines the analogy between financial instruments and neural network
 | **Rho**                                | Sensitivity to interest rates                           | External Parameter Sensitivity                      | Model's sensitivity to external condition changes                                    |
 | **Transaction Costs (TCA)**            | Costs associated with trading                           | L1 / L2 Regularization                              | Penalizes excessive activity or complexity                                           |
 | **As-You-Like-It Option**             | Flexibly choose payoff type and strike at expiry       | Meta-Controller / Dynamic Architecture Search        | Learns to select the optimal payoff structure or parameter path at runtime          |
-                      | Price movement caused by large trades                   | Gradient Clipping / Smooth Updates                  | Prevents abrupt changes during training                                              |
 
 ## Installation
 
