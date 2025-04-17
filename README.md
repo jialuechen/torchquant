@@ -20,7 +20,7 @@ This table outlines the analogy between financial instruments and neural network
 
 | Financial Instrument / Attribute       | Core Feature / Description                             | Analogous Neural Network Mechanism                  | Analogy Explanation                                                                 |
 |----------------------------------------|--------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------|
-| **European Options (Call & Put)**      | Call: max(S − K, 0); Put: max(K − S, 0)                | ReLU / Mirrored ReLU                                | Activation occurs when input exceeds or falls below a threshold                      |
+| **European Option**      | Call: max(S − K, 0); Put: max(K − S, 0)                | ReLU                                | Activation occurs when input exceeds or falls below a threshold                      |
 | **Softplus Option Proxy**              | Smooth version of option payoff                        | Softplus Activation Function                        | Provides smooth derivatives, suitable for differentiable training                    |
 | **American Option**                    | Early exercise right; optimal stopping strategy         | Optimal Stopping / Gated RNN                        | Dynamic decision-making akin to gating mechanisms                                    |
 | **Bermudan Option**                    | Exercise allowed on specific discrete dates             | Scheduled Halting / Discrete Gating                  | Like dynamic layers with only certain positions allowing early exit                  |
