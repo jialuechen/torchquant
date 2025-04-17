@@ -12,11 +12,9 @@
 
 **TorchQuant** is a comprehensive high-performance quantitative finance library built on top of PyTorch's automatic differentiation and GPU acceleration. It is a differentiable pricing framework with high-accuracy numerical methods. It provides comprehensive tools for derivatives pricing, risk management, and stochastic model calibration.
 
-## Financial Instruments and Neural Network Mechanisms Analogy
+## (Partial) Financial Instruments and Neural Network Mechanisms Analogy
 
 This table outlines the analogy between financial instruments and neural network components, reflecting how structural and functional characteristics of financial derivatives can inspire the design of all the pricing components in TorchQuant.
-
-## 📘 Financial Instruments and Neural Network Mechanisms Analogy
 
 | Financial Instrument / Attribute       | Core Feature / Description                             | Analogous Neural Network Mechanism                  | Analogy Explanation                                                                 |
 |----------------------------------------|--------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------|
