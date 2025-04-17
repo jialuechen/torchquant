@@ -12,24 +12,6 @@
 
 **TorchQuant** is a comprehensive high-performance quantitative finance library built on top of PyTorch's automatic differentiation and GPU acceleration. It is a differentiable pricing framework with high-accuracy numerical methods. It provides comprehensive tools for derivatives pricing, risk management, and stochastic model calibration.
 
-## Features
-
-- **Asset Pricing**:
-  - Advanced options pricing support ranging from vanilla to exotics.
-  - Bond pricing models including callable, putable, and convertible bonds.
-  - Implied volatility calculation using "Let's be rational" algorithm.
-
-- **Risk Management**:
-  - Greeks calculation utilizing AAD.
-  - Market risk measures such as VaR and Expected Shortfall.
-
-- **Neural Network-based Model Calibration**:
-  - Calibration for stochastic models like Heston, Vasicek, SABR, and more.
-  - Local volatility models including Dupire.
- 
-- **Sequence Methods**:
-  - Seq2Seq PDE solvers
-
 ## Financial Instruments and Neural Network Mechanisms Analogy
 
 This table outlines the analogy between financial instruments and neural network components, reflecting how structural and functional characteristics of financial derivatives can inspire the design of all the pricing components in TorchQuant.
@@ -64,6 +46,25 @@ This table outlines the analogy between financial instruments and neural network
 | **Theta**                              | Time decay of option value                             | Loss Drift / Time-aware Modeling                    | Changes in loss over time, akin to temporal decay                                    |
 | **Rho**                                | Sensitivity to interest rates                          | External Parameter Sensitivity                      | Model's sensitivity to external condition changes                                    |
 | **Transaction Costs**            | Costs associated with trading                          | L1 / L2 Regularization                              | Penalizes excessive activity or complexity                                           |                                           |
+
+## Features
+
+- **Asset Pricing**:
+  - Advanced options pricing support ranging from vanilla to exotics.
+  - Bond pricing models including callable, putable, and convertible bonds.
+  - Implied volatility calculation using "Let's be rational" algorithm.
+
+- **Risk Management**:
+  - Greeks calculation utilizing AAD.
+  - Market risk measures such as VaR and Expected Shortfall.
+
+- **Neural Network-based Model Calibration**:
+  - Calibration for stochastic models like Heston, Vasicek, SABR, and more.
+  - Local volatility models including Dupire.
+ 
+- **Sequence Methods**:
+  - Seq2Seq PDE solvers
+  
 ## Installation
 
 You can install torchquant via pip:
