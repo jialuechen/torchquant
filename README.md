@@ -10,7 +10,7 @@
 
 </div>
 
-**TorchQuant** is a comprehensive high-performance quantitative finance library built on top of PyTorch's automatic differentiation and GPU acceleration. It is a differentiable pricing framework with high-accuracy numerical methods. It provides comprehensive tools for derivatives pricing, risk management, and stochastic model calibration.
+**TorchQuant** is a comprehensive high-performance quantitative finance library built on top of PyTorch's automatic differentiation and GPU acceleration. It is a differentiable pricing framework with high-accuracy numerical methods. It provides comprehensive tools for derivatives pricing, risk management, and stochastic model calibration. More kinds of derivatives will be supported as the library grows.
 
 ## (Partial) Financial Instruments and Neural Network Mechanisms Analogy
 
