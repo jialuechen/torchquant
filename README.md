@@ -52,6 +52,7 @@ This table outlines the analogy between financial instruments and neural network
 
 - **Asset Pricing**:
   - Advanced options pricing support ranging from vanilla to exotics.
+  - Reducing computation costs for exotics options (a good example is the lookback option pricing that leverages max pooling, reducing time complexity from Monte Carlo simulation O(N*T) to O(T/L+N), L is the window length and N if the number of windows)
   - Bond pricing models including callable, putable, and convertible bonds.
   - Implied volatility calculation using "Let's be rational" algorithm.
 
