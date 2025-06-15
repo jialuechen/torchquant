@@ -262,7 +262,6 @@ print(f'Expected Loss (Reduced Form Model): {expected_loss.item()}')
 
 
 ### Q2 2025
-- Add support for more asset classes such as commodities and real estate.
 - Enhance the calibration module to support a broader range of models and optimization techniques.
 
 ## Development
