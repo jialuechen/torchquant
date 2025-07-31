@@ -3,7 +3,6 @@
 
 [![PyPI version](https://badge.fury.io/py/torchquantlib.svg)](https://badge.fury.io/py/torchquantlib)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-![Downloads](https://img.shields.io/pypi/dm/torchquantlib)
 ![Python versions](https://img.shields.io/badge/python-3.7%2B-green)
 ![PyTorch version](https://img.shields.io/badge/pytorch-2.4.0%2B-green)
 [![Documentation Status](https://readthedocs.org/projects/torchquant/badge/?version=stable)](https://torchquant.readthedocs.io/en/stable/?badge=stable)
