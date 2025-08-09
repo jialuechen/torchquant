@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="torchquantlib",
-    version="1.3.1",
+    version="1.3.2",
     description="High-Performance PyTorch Library for Derivatives Pricing",
     long_description=long_description,
     long_description_content_type="text/markdown",

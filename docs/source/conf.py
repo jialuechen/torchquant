@@ -13,9 +13,9 @@ import sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('../../torchquantlib'))
 
 project = 'TorchQuant'
-copyright = '2024, Jialue Chen'
+copyright = '2025, Jialue Chen'
 author = 'Jialue Chen'
-release = '1.3.1'
+release = '1.3.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

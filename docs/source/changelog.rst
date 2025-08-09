@@ -3,7 +3,7 @@ Changelog
 
 This page documents the version history and changes made to TorchQuant.
 
-Version 1.3.1 (Current Release)
+Version 1.3.2 (Current Release)
 -------------------------------
 
 - Current stable release of TorchQuant

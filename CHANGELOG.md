@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.2] - 2025-8-8
+### Added
+- Minor adjustments
+
 ## [1.3.1] - 2024-10-10
 ### Added
 - Minor adjustments
