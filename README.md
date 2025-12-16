@@ -66,6 +66,12 @@ This table outlines the analogy between financial instruments and neural network
  
 - **Sequence Methods**:
   - Seq2Seq PDE solvers
+
+## Examples
+<div>
+<img src="assets/lookback_option.png" loc>
+<img src="assets/asian_option.png" loc>
+</div>
   
 ## Installation
 
